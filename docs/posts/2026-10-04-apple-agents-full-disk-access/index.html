@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple just told AI agents to stop asking for your whole hard drive — AI Tech Blog</title>
+<meta name="description" content="Apple is tightening macOS Full Disk Access explicitly because of AI agents — and it&#x27;s the clearest signal yet that &quot;just trust the agent&quot; was never a permission model.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">4 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-agents/">AI agents</a><a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a></p>
+  <h1 class="post-title">Apple just told AI agents to stop asking for your whole hard drive</h1>
+  <p class="post-subtitle">macOS&#x27;s most powerful permission is getting harder to grant, and the reason Apple names is your agent</p>
+  
+  <div class="post-body">
+<p>Somewhere in Cupertino, someone finally said it out loud: your AI agent does not need to read your love letters to do your expense reports.</p>
+<p>On Thursday, Apple posted a quiet update to its developer news site — &ldquo;Updates to Full Disk Access in macOS&rdquo; — and tied it, unambiguously, to AI agents. Full Disk Access, Apple said, was built so backup software can do its job: it largely sidesteps the privacy controls that normally protect your data so a backup app can copy everything. The problem is that a growing crowd of developers has started asking for the same permission for very different purposes, exposing files, mail, messages, and browsing history &ldquo;without users&rsquo; full knowledge and understanding.&rdquo;</p>
+<p>Apple&rsquo;s framing of the fix is one sentence: granting that access will soon require &ldquo;very explicit user action.&rdquo; No date. No macOS version. No named app. But the stated reason is doing all the work: &ldquo;As AI agents become increasingly capable and autonomous, the risks associated with this level of access will grow substantially.&rdquo;</p>
+<p>Now, Apple didn&rsquo;t invent this concern. The announcement follows reports that Meta&rsquo;s Muse agent accessed a journalist&rsquo;s private iPhone and Mac messages without clear user awareness — a claim Meta disputes — and a separate vulnerability in ChatGPT&rsquo;s Mac app that could have exposed sensitive data. Reaction on Hacker News was split in a way that tells its own story: some developers welcomed per-folder granularity, while others objected to Apple calling disk access &ldquo;extraordinary&rdquo; at all. It used to be the baseline assumption, one commenter grumbled, that software running on hardware you own could read your files. That&rsquo;s true — and it also misses the point entirely.</p>
+<p>Because an agent asking for Full Disk Access is a different proposition from a backup utility asking for the same thing. A backup utility reads files and copies them to a disk you own. An agent reads files and sends them somewhere: a model provider, a logging endpoint, a vector database, a telemetry pipeline nobody documented. Apple&rsquo;s phrasing gets at this obliquely — the risk is reading <em>plus</em> outbound — but the math is straightforward. The agent has your data; the agent also has a network connection. That combination is what makes whole-disk access &ldquo;extraordinary&rdquo; in a way it wasn&rsquo;t in the backup-utility era.</p>
+<p>Here&rsquo;s the part that should make agent developers squirm. Broad permissions aren&rsquo;t usually a design decision — they&rsquo;re the path of least resistance. Building scoped file access means thinking about which directories actually matter, writing a folder-picker flow, handling the case where the user says no. Asking for Full Disk Access means one dialog and done. Plenty of agent tools have shipped setup docs that start with &ldquo;enable Full Disk Access,&rdquo; screenshot of System Settings and all, before explaining a word about what the agent does with your files. When the easy path is also the overreaching path, you get overreach by default — not malice, just friction doing what friction does.</p>
+<p>Apple adding friction flips the incentive. If granting Full Disk Access becomes a deliberately scarier, more explicit act, developers who grabbed it out of convenience get a reason to build the scoped version instead. The permission request becomes a review signal: a tool that demands your whole disk without explaining why is telling you something about how carefully it was designed.</p>
+<p>There is one caveat, and it&rsquo;s the whole game. Consent screens have a terrible track record of actually informing anyone. We have all accepted cookie banners we didn&rsquo;t read. If Apple&rsquo;s new flow is just more words in the same box, behaviour won&rsquo;t change. If it&rsquo;s structurally different — clearer disclosure of exactly what the app can reach, maybe scoped middle tiers — it could genuinely reshape how agent tools get built on the Mac. Apple hasn&rsquo;t said which. The gap between &ldquo;we will introduce additional controls&rdquo; and shipping behaviour is where this either becomes meaningful or becomes wallpaper.</p>
+<p>So what do you do before any of this lands? Don&rsquo;t wait for Apple — audit your Full Disk Access list yourself, right now. Open System Settings and look at who holds it. You&rsquo;ll probably find at least one tool you tested once and never uninstalled. Revoke anything you don&rsquo;t actively use; nothing breaks that you can&rsquo;t re-enable. For the agent tools you keep, check whether they offer a scoped alternative — some do and just don&rsquo;t advertise it. And ask where your data goes. The answer should be in the docs. If it isn&rsquo;t, that&rsquo;s your answer.</p>
+<p>The deeper signal here matters more than the dialog box. When a platform vendor names AI agents as the reason for a platform-level lockdown, the overreach was visible enough from the outside to force a response. Dots, Manus, Muse — the agent wave is real, and so is the new bargain it&rsquo;s quietly trying to strike: hand over the keys to everything, and trust the cloud. Apple&rsquo;s bet is that you shouldn&rsquo;t have to.</p>
+<p>The permission an agent asks for tells you a lot about how carefully it was designed. Soon, on the Mac at least, those asks are going to be a lot harder to hide.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Unite.AI: Apple to tighten macOS Full Disk Access, citing AI agent risks](https://www.unite.ai/apple-to-tighten-macos-full-disk-access-citing-ai-agent-risks/)</li><li>[Agntbox: Your AI Agent Does Not Need Your Whole Hard Drive](https://agntbox.com/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from/)</li><li>[ai0.news: Apple locks Full Disk Access over agent risks](https://ai0.news/posts/2026-10-03-daily-digest/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
