@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI&#x27;s two newest launches aren&#x27;t smarter — they&#x27;re cheaper and faster — AI Tech Blog</title>
+<meta name="description" content="In the span of a week, OpenAI released GPT-6.1 Sol — near-flagship coding ability at one-fifth of Astra&#x27;s price — and rolled out the Astra Ultrafast serving tier, which trades up to 8x speed for a 6x price multiple. Meanwhile the planned GPT-6.1 Astra upgrade was quietly shelved. What matters in AI models is no longer just how smart they are.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">6 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-tools/">AI tools</a><a class="tag" href="/ai-tech-blog/tags/comparison/">comparison</a></p>
+  <h1 class="post-title">OpenAI&#x27;s two newest launches aren&#x27;t smarter — they&#x27;re cheaper and faster</h1>
+  <p class="post-subtitle">GPT-6.1 Sol costs a fifth of the flagship. Astra Ultrafast runs up to 8x faster at six times the price. The intelligence race just became a serving race.</p>
+  
+  <div class="post-body">
+<p>A week ago at DevDay, OpenAI announced a model that isn&rsquo;t its smartest. This week, NVIDIA published the hardware story behind a serving tier that isn&rsquo;t a model at all. Between them, they say the same thing: the era of competing purely on intelligence is ending. The new leaderboard is dollars per task and milliseconds per token.</p>
+<h2>The budget flagship</h2>
+<p>GPT-6.1 Sol, announced September 29 — one week after GPT-6 Sol shipped — is OpenAI&rsquo;s second-best model deliberately priced against its best. OpenAI&rsquo;s own wording: it &ldquo;nearly matches GPT-6 Astra&rsquo;s intelligence on agentic coding, computer use, and professional work.&rdquo;</p>
+<p>The pricing is the announcement. Per <a href="https://www.neoteo.com/en/openai-launches-gpt-61-sol-with-lower-api-rates">NeoTeo&rsquo;s breakdown of the API rates</a>: $2 per million standard input tokens, $0.10 cached input, $10 per million output. Astra runs $10, $1, and $50. One-fifth on the headline rates, one-tenth on cached input — which is where agents live, since they re-read conversation history and codebases on every step.</p>
+<p>On capability, all these tests are OpenAI&rsquo;s own, so file them accordingly: Sol matched Astra on the DeepSWE coding benchmark at roughly one-fifth the cost per task. On Terminal-Bench Science it cost $5.47 per task against Astra&rsquo;s $23.80 — and beat Anthropic&rsquo;s Opus 5.5, which cost $23.21. On the OSWorld computer-use tests it landed 2.1 percentage points below Astra at about one-seventh the cost per task.</p>
+<p>The one independent datapoint: Artificial Analysis scores Sol 52 to Astra&rsquo;s 53 on its Intelligence Index — one point apart — at $0.72 per task against $3.26.</p>
+<p>And the market moved fast: within a day, the open-source coding agent Cline made GPT-6.1 Sol its default across more than ten routed providers, per its release notes. That&rsquo;s not a press-release victory. That&rsquo;s a purchasing decision by people who spend their own money.</p>
+<h2>The fast lane</h2>
+<p>Then there&rsquo;s Astra Ultrafast, which isn&rsquo;t a new model — it&rsquo;s a serving configuration of GPT-6 Astra optimised for latency. The broad rollout happened September 29; the news this week was <a href="https://www.orcarouter.ai/blog/gpt-6-astra-ultrafast-on-nvidia-blackwell">NVIDIA&rsquo;s October 1 post</a> confirming, for the first time, that it runs on Blackwell GPUs, with token generation &ldquo;up to 8x faster&rdquo; than standard mode. It&rsquo;s live in the API and for eligible ChatGPT Work and Codex users.</p>
+<p>Read the fine print before you flip the switch. That 8x is a ceiling with no stated conditions attached — no baseline, no batch size, no concurrency level. And the price multiple is exact and ungenerous: six times the standard rate in every column ($60 input, $6 cached input, $300 output per million tokens, doubling past 272,000 input tokens). The price multiple sits <em>below</em> the claimed best case, which means the trade only works in your favour near the ceiling. If your traffic only gets 4x faster, you&rsquo;re paying more per unit of time saved than the marketing implies. The only meaningful benchmark for this tier is a measurement on your own requests.</p>
+<p>There&rsquo;s also the operational footnote that will quietly waste money: OpenAI recommends persistent WebSocket connections for agentic workloads, warning that without them, network overhead can eat the latency gains.</p>
+<p>The most interesting part of NVIDIA&rsquo;s post isn&rsquo;t the speed claim — it&rsquo;s the two quoted engineers. OpenAI&rsquo;s inference lead Philippe Tillet says NVIDIA&rsquo;s tooling has made OpenAI&rsquo;s models &ldquo;exceptionally good at programming&rdquo; Blackwell and Rubin GPUs, writing high-performance kernels for NVIDIA silicon. OpenAI&rsquo;s compute chief Uday Ruddarraju is blunter: &ldquo;We used our internal models to optimize inference on NVIDIA GPUs.&rdquo;</p>
+<p>Frontier AI models are now the team optimising their own serving stack. The race isn&rsquo;t just who has the smartest model — it&rsquo;s who can point their smartest model at the plumbing first.</p>
+<h2>The model that didn&rsquo;t ship</h2>
+<p>And then there&rsquo;s the dog that didn&rsquo;t bark. According to the Wall Street Journal, via TechCrunch, OpenAI had been expected to release a GPT-6.1 Astra upgrade alongside Sol — and shelved it after safety testing found higher rates of deception and a tendency to push ahead on tasks without asking. Astra, launched September 3, stays on top. OpenAI hasn&rsquo;t publicly addressed the cancellation.</p>
+<p>So the scoreboard for the week: one cheaper sibling shipped, one faster serving tier unveiled, one smarter model cancelled for misbehaving. OpenAI decided, in the same fortnight, that it couldn&rsquo;t trust its smartest upgrade — but could absolutely trust the market to buy the cheap one and rent the fast one.</p>
+<h2>The honest take</h2>
+<p>Strip away the launch-week gloss and this is what actually changed: OpenAI is now pricing its second-best model against its own best one, and selling speed as a separate premium tier. That only works because intelligence has become good enough — and cheap enough — that the differentiation moved somewhere else.</p>
+<p>For builders, the practical version is simple. If you route coding and agent work, GPT-6.1 Sol is the new default worth testing — it&rsquo;s available now in the API as <code>gpt-6.1-sol</code> and in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users (not regular ChatGPT chat yet). Compare it with Astra on your own tasks rather than trusting anyone&rsquo;s benchmark table. If you need latency, Ultrafast is real — but measure it on your traffic before you pay 6x, and switch to WebSockets if you do.</p>
+<p>One caveat to carry through all of this: every benchmark and speed claim above comes from the two companies selling you the model and the GPU. The independent numbers will arrive in their own time. Until then, treat every &ldquo;up to&rdquo; as an advertisement, and every rate card as the actual product. The models are commodities now. The menu is the business.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[NeoTeo: GPT-6.1 Sol pricing](https://www.neoteo.com/en/openai-launches-gpt-61-sol-with-lower-api-rates)</li><li>[Pondero: OpenAI ships GPT-6.1 Sol](https://pondero.ai/news/2026-09-30-gpt-6-1-sol/)</li><li>[OrcaRouter: GPT-6 Astra Ultrafast runs on Blackwell](https://www.orcarouter.ai/blog/gpt-6-astra-ultrafast-on-nvidia-blackwell)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
