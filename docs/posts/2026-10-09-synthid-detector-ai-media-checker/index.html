@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Was that photo made by AI? Google&#x27;s free checker just opened to everyone — AI Tech Blog</title>
+<meta name="description" content="Google&#x27;s SynthID Detector went global on 7 October, letting anyone upload an image, video or audio file to check for invisible AI watermarks from Google, OpenAI, NVIDIA and Kakao. Here&#x27;s how it works, its limits, and how to read a result.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">9 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/how-to/">how-to</a><a class="tag" href="/ai-tech-blog/tags/ai-tools/">AI tools</a></p>
+  <h1 class="post-title">Was that photo made by AI? Google&#x27;s free checker just opened to everyone</h1>
+  <p class="post-subtitle">SynthID Detector now takes uploads from anyone — here&#x27;s how to use it, and why a clean result proves absolutely nothing.</p>
+  
+  <div class="post-body">
+<p>Every group chat eventually reaches the same moment. Someone drops a photo — a politician doing something absurd, a &ldquo;real&rdquo; video of a tornado where tornadoes don&rsquo;t happen — and someone else asks the only question that matters: is this even real?</p>
+<p>Until this week, answering that properly needed either a journalist&rsquo;s toolkit or blind faith. <a href="https://www.unite.ai/google-opens-synthid-detector-globally-with-partner-ai-content-checks/">Google has quietly fixed the toolkit part</a>. On 7 October, it opened its SynthID Detector — the portal that scans files for invisible AI watermarks — to everyone, everywhere, in English. No waitlist, no press credentials. It had been sitting with a small group of journalists, media professionals and researchers since May 2025.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Go to Google&rsquo;s SynthID Detector (find it via the announcement on The Keyword — it&rsquo;s a plain web portal).</li>
+<li>Sign in. There&rsquo;s no skipping this part; the tool requires a Google account.</li>
+<li>Upload the suspicious file. It takes images (JPG, PNG, WEBP, GIF, HEIC), video (MP4, MOV, WEBM) and audio (MP3, WAV, FLAC and more).</li>
+<li>Read the result. For an image, it says whether a watermark was detected. For video and audio, it&rsquo;s smarter than that — it flags <em>which segments</em> of the file carry the watermark, so a partially AI-edited clip can be pinned down.</li>
+<li>Pace yourself. Ars Technica reports the portal caps users at roughly 10 checks a day. Google told the site the limit exists to make it harder for people to hammer the system and reverse-engineer ways to strip the watermarks. So no, you can&rsquo;t batch-verify your entire meme folder in one sitting.</li>
+</ol>
+<h2>What it can actually detect</h2>
+<p>SynthID is an invisible watermark embedded at the moment AI content is created — hidden in the pixels, the video frames, or the audio waveform. Since launching the system in 2023, <a href="https://sqmagazine.co.uk/google-synthid-detector-public-ai-media-checks/">Google says it has watermarked more than 180 billion images and videos, plus 240,000 years of audio content</a>. That is not a typo. Two hundred and forty thousand <em>years</em>.</p>
+<p>The detector covers media from Google&rsquo;s own generators plus partners OpenAI, NVIDIA and Kakao — and Apple support is coming later this year. The watermark is designed to survive the things people normally do to files: cropping, filters, frame-rate changes, lossy compression. The audio version survives MP3 compression and speed changes. That&rsquo;s deliberate — the whole point is for the signal to persist through the journey from generator to group chat.</p>
+<p>Google already bakes this checking into Search, the Gemini app and Chrome, which it says handle more than a million verification requests a day. This portal is the standalone version anyone can use.</p>
+<h2>What it cannot do (the important part)</h2>
+<p>The Detector&rsquo;s own FAQ is refreshingly blunt: <em>&ldquo;This is not a general AI detector.&rdquo;</em> It can only spot the SynthID watermark. And that means a &ldquo;no watermark found&rdquo; result proves exactly nothing. Three reasons it might miss:</p>
+<ul>
+<li>The file was made by a model that doesn&rsquo;t use SynthID. That&rsquo;s a big universe — most standalone generators don&rsquo;t.</li>
+<li>The watermark degraded after heavy modification.</li>
+<li>The file is a photo of a photo, a screen recording, or otherwise a few steps removed from the original.</li>
+</ul>
+<p>It also can&rsquo;t distinguish AI-<em>created</em> from AI-<em>edited</em> media, and Google notes rare false positives, recommending you upload the highest-quality file available and gather multiple points of evidence before drawing conclusions.</p>
+<p>Two more practical notes: your uploads are processed in real time and deleted immediately after results are returned (a digital signature is kept for 24 hours purely to enforce the daily quota), and the terms of service prohibit reverse-engineering or automating queries.</p>
+<h2>The takeaway</h2>
+<p>Think of this as one layer in a provenance toolkit, not a verdict machine. &ldquo;Watermark found&rdquo; is strong evidence the file came from a supported AI tool. &ldquo;No watermark found&rdquo; is the system politely declining to comment — treat it as <em>no evidence either way</em>, and keep checking the source, the context, and whether your uncle&rsquo;s forwarded video really shows a tornado in Adelaide.</p>
+<p>But credit where it&rsquo;s due: this is now the largest cross-company content-provenance check available to the public for free, and the cross-company bit is what matters. A check that only catches one company&rsquo;s models is a curiosity; one covering Google, OpenAI, NVIDIA and Kakao — with Apple on the way — is something you might actually reach for. The next time someone drops a suspicious photo in the chat, you&rsquo;ll have an answer better than &ldquo;looks fake to me.&rdquo;</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Unite.AI](https://www.unite.ai/google-opens-synthid-detector-globally-with-partner-ai-content-checks/)</li><li>[MacRumors](https://www.macrumors.com/2026/10/07/google-synthid-detector/)</li><li>[SQ Magazine](https://sqmagazine.co.uk/google-synthid-detector-public-ai-media-checks/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
