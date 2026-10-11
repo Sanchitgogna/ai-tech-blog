@@ -180,9 +180,22 @@ def build():
     (d / "index.html").write_text(
         render_base("About — " + SITE_NAME, "About the AI Tech Blog.", about_content), encoding="utf-8")
 
+    # --- privacy (policy page for the YouTube Uploader OAuth app) ---
+    privacy_md = (HERE / "privacy.md").read_text(encoding="utf-8") if (HERE / "privacy.md").exists() else ""
+    if privacy_md:
+        privacy_html = md.convert(privacy_md)
+        md.reset()
+        privacy_content = f'<article class="about"><h1>Privacy Policy</h1>{privacy_html}</article>'
+        d = OUT_DIR / "privacy"
+        d.mkdir(parents=True)
+        (d / "index.html").write_text(
+            render_base("Privacy Policy — " + SITE_NAME,
+                        "Privacy policy for the YouTube Uploader app.", privacy_content),
+            encoding="utf-8")
+
     # --- robots, sitemap, rss ---
     (OUT_DIR / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
-    urls = [f"{SITE_URL}/", f"{SITE_URL}/about/"]
+    urls = [f"{SITE_URL}/", f"{SITE_URL}/about/", f"{SITE_URL}/privacy/"]
     for fm in posts:
         urls.append(f"{SITE_URL}/posts/{fm['slug']}/")
     for tag in tag_map:
