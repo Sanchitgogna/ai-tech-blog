@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA&#x27;s 74-billion-parameter model leaves the data centre — and only 9 billion of it is awake — AI Tech Blog</title>
+<meta name="description" content="NVIDIA releases Nemotron 3.5 Bolt 74B A9B today: 74 billion parameters, 9 billion active per token, fitting in 24GB via 2-bit quantization — fully open source and running on llama.cpp, Ollama and LM Studio from day one. All the performance claims, though, are NVIDIA&#x27;s own.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">15 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/open-source/">open source</a><a class="tag" href="/ai-tech-blog/tags/local-ai/">local AI</a></p>
+  <h1 class="post-title">NVIDIA&#x27;s 74-billion-parameter model leaves the data centre — and only 9 billion of it is awake</h1>
+  <p class="post-subtitle">Nemotron 3.5 Bolt arrives today, fully open source, squeezed into 24GB with 2-bit quantization. The local-agent era is officially on — read the footnotes.</p>
+  
+  <div class="post-body">
+<p>Today is the day a 74-billion-parameter AI model becomes a laptop workload.</p>
+<p>NVIDIA releases <a href="https://www.techtimes.com/articles/328981/20261014/nvidia-rtx-spark-launches-friday-74-billion-parameter-ai-fits-24gb-laptop.htm">Nemotron 3.5 Bolt 74B A9B</a> today — 15 October — a model with 74 billion parameters that fits inside 24 gigabytes of memory. That&rsquo;s one high-end consumer GPU. Or, pointedly, the memory class of the RTX Spark laptops that go on sale tomorrow.</p>
+<p>Let&rsquo;s get the important part out of the way first: 74B is the marketing number. The number that does the work is 9B.</p>
+<h2>The trick: a big brain, asleep in parts</h2>
+<p>Bolt 74B is a <a href="https://alfw.ai/article/nvidia-nemotron-bolt-74b-24gb/">sparse mixture-of-experts model</a>. All 74 billion parameters live in memory, but only about 9 billion of them wake up for any given token. Different tokens get routed to different specialist sub-networks by a gating mechanism trained alongside the model. So in terms of actual compute per inference, it behaves more like a 9-billion-parameter model — while carrying around the knowledge base of a 74B one.</p>
+<p>That alone wouldn&rsquo;t get it onto a laptop. The second trick is <a href="https://www.techtimes.com/articles/328981/20261014/nvidia-rtx-spark-launches-friday-74-billion-parameter-ai-fits-24gb-laptop.htm">2-bit quantization-aware training</a>: instead of training at full precision and squishing the weights afterwards (the usual method, and the one that turns quality to mush at aggressive ratios), NVIDIA simulated the 2-bit precision loss <em>during</em> training, so the model learned to compensate. Result: a 74B-class model occupying 24GB at inference, where a dense full-precision model of comparable size would want well over 140GB.</p>
+<p>Neither trick is brand new — MoE is the architecture family behind Mixtral and DeepSeek-V3 — but stacking them this aggressively, in a model purpose-built for <em>agents</em> (coding help, tool calls, monitoring, background tasks running resident on your machine), is.</p>
+<h2>And it&rsquo;s actually open</h2>
+<p>This is the part that makes the launch matter beyond NVIDIA&rsquo;s hardware sales. Bolt 74B ships fully open source — weights, training data, and training recipes. Not open-weight-but-hush-about-how: the whole recipe.</p>
+<p>That openness shows in the day-one support. It runs through <a href="https://blockchain.news/news/nvidia-rtx-spark-software-ecosystem-updates-october-2026">llama.cpp, Ollama, vLLM, Unsloth and LM Studio</a> from launch, and it&rsquo;s wired directly into agent frameworks like Hermes and OpenClaw. There&rsquo;s even a new <a href="https://www.gadgetpilipinas.net/2026/10/nvidia-rtx-spark-launch-week-software-updates/">Llama for Windows app</a> — a system-tray GUI built with Hugging Face that lets you download and run local models without touching a command line. A smaller sibling, Bolt E4B, follows on 23 October, aimed at conversational agents and game NPCs — developers can try it inside SkyrimNET, an AI-NPC modding platform for Skyrim. Yes, really.</p>
+<p>The surrounding software push makes NVIDIA&rsquo;s real bet clear. PAIR — the Personal AI Router — left beta on Tuesday: a free, open-source tool that auto-discovers GPUs on your local network and spreads inference across them (NVIDIA has tested it across 18 devices, and it supports everything from RTX 20-series cards to Apple M4 chips). Meanwhile Switchyard, NVIDIA&rsquo;s hybrid routing library, addresses the obvious question — what happens when the local model isn&rsquo;t smart enough? LangChain reported cutting its AI costs 74% by routing just 7% of calls to frontier cloud models, accepting a 6% accuracy tradeoff.</p>
+<p>One product is the model. The strategy is a habit: run the easy stuff on your own hardware for free, escalate to the cloud only when it counts.</p>
+<h2>The honest footnotes</h2>
+<p>All of which is great — and all of which comes with caveats, because every performance claim so far is NVIDIA&rsquo;s own. &ldquo;Faster than common dense models, stronger than similar-footprint MoE models&rdquo; is vendor framing with no released weights behind it until today. Independent benchmarks will tell the real story now that the model is public.</p>
+<p>Two footnotes deserve particular attention. First, the 24GB figure is the <em>weights</em> footprint — actual deployment memory also depends on context length, KV cache, runtime overhead, and whatever agent harness you&rsquo;re running alongside it. &ldquo;Fits in 24GB&rdquo; and &ldquo;runs well on 24GB with a real workload attached&rdquo; are different sentences. Second, NVIDIA&rsquo;s claim that local LLM downloads are already five times higher than last year arrives with no dataset, no measurement period, and no methodology. Plausible direction; unverifiable magnitude.</p>
+<p>The biggest open question is the 2-bit quantization itself. It&rsquo;s one thing to compress a model that hard and keep its benchmarks intact; it&rsquo;s another to keep it reliable at agentic tool use, where small errors compound across a multi-step run. That&rsquo;s exactly what today&rsquo;s release lets everyone finally test.</p>
+<h2>Why this one&rsquo;s worth watching</h2>
+<p>For the last two years, &ldquo;local AI&rdquo; has meant either running genuinely small models or renting a workstation-class machine. Bolt 74B is the moment the marketing number for a laptop model reached 74B while the model doing the work stayed in single digits — and the recipe is open, so the whole ecosystem can optimise for it on day one.</p>
+<p>I keep coming back to a line from the alfw.ai writeup: if the quantization holds, NVIDIA has built a local agent model that&rsquo;s open enough to build on and small enough to leave running. If the quantization shows, the launch is still instructive — it&rsquo;ll mark the point where shrinking became the frontier. Either way, the interesting number to benchmark today isn&rsquo;t 74B. It&rsquo;s 9.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Tech Times — 74-billion-parameter AI fits in 24GB laptop](https://www.techtimes.com/articles/328981/20261014/nvidia-rtx-spark-launches-friday-74-billion-parameter-ai-fits-24gb-laptop.htm)</li><li>[alfw.ai — Nemotron Bolt 74B: 74B in 24GB, Only 9B Active](https://alfw.ai/article/nvidia-nemotron-bolt-74b-24gb/)</li><li>[Gadget Pilipinas — RTX Spark launch week software updates](https://www.gadgetpilipinas.net/2026/10/nvidia-rtx-spark-launch-week-software-updates/)</li><li>[Blockchain.News — NVIDIA RTX Spark software ecosystem updates](https://blockchain.news/news/nvidia-rtx-spark-software-ecosystem-updates-october-2026)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
