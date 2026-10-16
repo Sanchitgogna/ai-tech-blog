@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kling 4.0 wants to be the director, not the camera — AI Tech Blog</title>
+<meta name="description" content="Kuaishou&#x27;s Kling 4.0, launched this week, doubles clip length to 30 seconds and adds a keyframe system borrowed from animation. The specs are impressive, but the real story is the shift: from prompting video like a lottery ticket to directing it like a shot list.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">17 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-tools/">AI tools</a><a class="tag" href="/ai-tech-blog/tags/tool-review/">tool review</a></p>
+  <h1 class="post-title">Kling 4.0 wants to be the director, not the camera</h1>
+  <p class="post-subtitle">Thirty-second clips, 10 keyframes, and 15 reference inputs — AI video&#x27;s new frontier is control, not realism</p>
+  
+  <div class="post-body">
+<p>Every AI video demo looks the same: a stunning eight-second clip of a landscape, a cute animal, a slow camera pan. Then you try to make something real — a product ad, a scene with two characters, a shot where the camera actually moves — and the whole thing falls apart. Faces melt. Rooms rearrange themselves between cuts. The model, it turns out, was only ever good at eight seconds.</p>
+<p>Kuaishou&rsquo;s Kling AI is aiming at that gap. Its <a href="https://finance.biggo.com/news/2aad1bd2-a1f4-4cde-9860-3ff3a5f5db78">new Kling 4.0 model</a>, rolled out this week after an initial reveal on September 28, is built on a simple bet: the next frontier in AI video isn&rsquo;t realism, it&rsquo;s control.</p>
+<h2>Thirty seconds and a shot list</h2>
+<p>The headline spec is easy to quote: clips up to 30 seconds in a single pass, doubling the previous generation&rsquo;s 15. But duration on its own was never the hard problem. The hard problem was everything that happened <em>inside</em> those seconds — the drift, the morphing, the camera that seemed to have a mind of its own.</p>
+<p>That&rsquo;s where the 10 keyframes come in, and they&rsquo;re the genuinely interesting part of this release. Instead of describing an entire scene in one paragraph and praying, you place up to 10 keyframes that choreograph how the video unfolds: a wide establishing shot that pushes in, a cut to a close-up, a rise to an aerial view. Each keyframe gets its own description — a storyboard panel the model has to follow.</p>
+<p>As the NeurAITool <a href="http://dev.to/neuraitool/kling-40-explained-keyframes-omni-reference-and-what-changed-in-ai-video-53ee">breakdown on DEV</a> puts it, this shifts the job from &ldquo;prompt and pray&rdquo; to something closer to directing. If shot three is wrong, you fix shot three — you don&rsquo;t regenerate the whole clip and lose the two good ones. It&rsquo;s a small change in interface that represents a large change in workflow.</p>
+<h2>References, references, references</h2>
+<p>The other big addition is what Kling calls &ldquo;Omni Reference&rdquo;: up to 15 reference inputs per generation — images, video clips, character sheets, voice timbre — drawn from a pool of uploaded assets. The <a href="https://medium.com/@accusing.eyes.of.vengeance/kling-4-0-official-review-is-here-features-and-details-breakdown-08412837977c">Medium review</a> of the official announcement notes that 30 seconds of video is only useful if the character still looks like the character at second 28. Reference systems are the industry&rsquo;s answer to AI video&rsquo;s most visible tell: continuity drift. Feed the model the face, the product photo, the lighting reference, and it holds them across the sequence — or at least, that&rsquo;s the promise. In practice, this is the claim every reviewer should be testing first.</p>
+<p>The supporting cast fills out the package: prompts up to 8,000 tokens (enough room for actual direction, not just a caption), stereo audio with improved lip-sync, text generation and lip-sync across nine languages, and 10-bit HDR output. A continuation feature that extends videos up to two minutes is announced but listed as coming soon — don&rsquo;t build your October production schedule around it.</p>
+<h2>The catch: the launch is staged</h2>
+<p>Honesty time. Not everything above is available right now. Kling 4.0 is a two-tier release: the faster Flash variant opened in limited early access on September 28 for Ultra Yearly subscribers (up to 20 seconds per pass, up to 720p), while the full model is scheduled for public release sometime this month, with no exact day published. And 4K output at 10-bit HDR is listed as &ldquo;coming soon&rdquo; — promised, not delivered. Official pricing hasn&rsquo;t been published either.</p>
+<p>This is the part of AI video launches that burns creators: announcing the spec sheet and shipping the fine print. If you&rsquo;re planning work around Kling 4.0, prototype against what&rsquo;s available today and treat the rest as roadmap. The DEV breakdown&rsquo;s advice is worth repeating: don&rsquo;t rebuild your pipeline around announced specs.</p>
+<h2>Why Adobe and WPP care</h2>
+<p>Here&rsquo;s the signal that this is more than a spec-sheet war. At Advertising Week New York earlier this month, Kling appeared on stage with WPP and Adobe to talk about generative video moving from experimentation to enterprise production. Adobe already brought Kling 3.0 into Firefly, its all-in-one creative AI studio, and will bring 4.0 to the platform too. WPP&rsquo;s AI chief joined the session to describe how agencies are building generative video into actual campaign pipelines.</p>
+<p>That matters more than any benchmark. Enterprise creative teams don&rsquo;t adopt tools because a demo looks pretty; they adopt tools that fit into pipelines. Keyframes, reference libraries, structured inputs — these are the grammar of professional video. Kling is speaking it.</p>
+<p>There&rsquo;s precedent on the filmmaking side too. Director Kim Sung-soo, best known for the historical drama <em>12.12: The Day</em>, used Kling 4.0 to build scenes for an AI short called <em>Worm Train</em>, presented at the Busan International Film Festival — and described the results as stable enough for complex choreography. Two works made with Kling AI took gold at Cannes Lions this summer, the first year the festival&rsquo;s evaluation system incorporated AI. Company claims, sure. But real projects with real names attached.</p>
+<h2>How it stacks up</h2>
+<p>Against the competition, Kling 4.0&rsquo;s edge is clip length and reference flexibility: 30 seconds against <a href="https://tech-insider.org/kling-api-ai-video-pipeline-setup-2026/">Veo 3.1&rsquo;s 20</a>, 15 references against standard text-or-image prompting. Veo&rsquo;s advantage is boring but important — publicly documented pricing, which makes costs forecastable. Luma&rsquo;s Ray3.2 remains the specialist for HDR and colour-managed pipelines, with up to 16 keyframes of its own. And one caution from that same comparison: OpenAI&rsquo;s Sora API was reportedly shut down on September 24, so any tutorial still pointing at it as a primary endpoint is out of date.</p>
+<h2>The takeaway</h2>
+<p>AI video spent two years as a party trick: type a sentence, get eight seconds of wonder. Kling 4.0&rsquo;s bet is that the next two years belong to people who want to <em>direct</em> — who bring reference sheets, plan beats, and fix shot three without losing shots one and two. Thirty seconds, 10 keyframes, 15 references: the spec sheet is impressive, but the shift it represents is the real story.</p>
+<p>The question is whether the staged rollout delivers on the announcement before the novelty fades. 4K HDR is &ldquo;coming soon,&rdquo; pricing is unannounced, and the full model&rsquo;s public release day is still a mystery. For now, the smart move is to do what you&rsquo;d do with any unproven director: hand them a short scene first, see how they handle it, and keep your other camera rolling.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[BigGo Finance — "Kling AI Unveils 4.0 Model With 30-Second Clips, Eyes Pro Film Market"](https://finance.biggo.com/news/2aad1bd2-a1f4-4cde-9860-3ff3a5f5db78)</li><li>[DEV / NeurAITool — "Kling 4.0 Explained: Keyframes, Omni Reference, and What Changed in AI Video"](http://dev.to/neuraitool/kling-40-explained-keyframes-omni-reference-and-what-changed-in-ai-video-53ee)</li><li>[Medium — "Kling 4.0 Official Review: Features and Details Breakdown"](https://medium.com/@accusing.eyes.of.vengeance/kling-4-0-official-review-is-here-features-and-details-breakdown-08412837977c)</li><li>[Tech Insider — "Kling 4.0 vs Veo 3.1 vs Luma Ray3.2: Capability Comparison"](https://tech-insider.org/kling-api-ai-video-pipeline-setup-2026/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
