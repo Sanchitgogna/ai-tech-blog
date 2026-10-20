@@ -1,0 +1,41 @@
+---
+title: "Washington just banned DeepSeek. It signed the order three months ago and told no one."
+date: 2026-10-21
+subtitle: "The July order's 60-day exception window closed before anyone outside government knew it existed — and the fine print bans tools merely \"developed using\" DeepSeek's models."
+tags: AI news, AI policy, China
+excerpt: DHS published a formal ban on DeepSeek across federal civilian agencies on Oct 20 — an order signed July 24 that also sweeps up any vendor tool "developed using" DeepSeek's open models.
+disclosure: false
+sources:
+- [Reuters](https://www.thehindubusinessline.com/info-tech/us-orders-removal-of-deepseek-from-civilian-government-it-systems/article71603248.ece/amp/)
+- [Tech Insider](https://tech-insider.org/deepseek-ban-vendor-clause-3-agencies-2026/)
+- [Tesla News Wire](https://teslanewswire.com/articles/dhs-bans-deepseek-federal-civilian-agencies-removal-order-oct-20-2026/)
+- [The Diary of AI](https://thediaryofai.com/ai-news-20261020/)
+---
+
+The biggest AI security story of the week is dated July. That's not a typo.
+
+On Tuesday, the Department of Homeland Security published a [formal notice in the Federal Register](https://teslanewswire.com/articles/dhs-bans-deepseek-federal-civilian-agencies-removal-order-oct-20-2026) ordering every federal civilian agency to rip DeepSeek products out of its IT systems and stop buying them. The Wall Street Journal broke the news a day earlier; CNBC and Reuters followed. Sounds dramatic. The order itself, though, was signed on July 24. The government has simply been acting on it for three months without telling anyone — including, apparently, the vendors caught by it.
+
+This is the first time Washington has invoked the Federal Acquisition Supply Chain Security Act of 2018 against an AI company. That law was built to keep risky vendors out of federal supply chains, and DHS used it here after a recommendation from the Federal Acquisition Security Council, the interagency body that evaluates supply-chain threats. DHS says DeepSeek's models pose "multiple threat vectors": sensitive data could flow back to the PRC if government employees or contractors use the products, usage "could produce actionable intelligence on US persons and/or government agencies," and the models themselves "may contain malware or other security vulnerabilities."
+
+All of that is the headline. The fine print is where it gets properly strange.
+
+The order doesn't just cover DeepSeek's own products. It reaches "third-party products and services developed using DeepSeek implementations." Read that again. DeepSeek released its R1 model as open weights — anyone can download them, distill their outputs into a smaller proprietary model, fine-tune them, or use them to generate synthetic training data. The finished product may contain zero DeepSeek weights, yet it was unambiguously "developed using" DeepSeek. As [Tech Insider's detailed breakdown](https://tech-insider.org/deepseek-ban-vendor-clause-3-agencies-2026/) notes, no existing software bill-of-materials standard captures development-time model use. SBOM frameworks track what runs in a deployed system, not what was in the recipe. Agencies and their contractors now have to certify a negative: that their tools weren't, somewhere along the way, touched by DeepSeek.
+
+Then there's the exception clause. Agencies could request exemptions — but the 60-day clock ran from the July 24 signing date. It closed around late September, weeks before the order was public. [As TechTimes pointed out](https://www.techtimes.com/articles/329253/20261020/dhs-filed-deepseek-ban-28-days-after-agencies-lost-right-request-exceptions.htm), DHS filed the notice 28 days after the exception window expired. Agencies that needed relief had to ask for it from an order they didn't know existed. The notice's publication date is not, as one outlet dryly noted, the start of a fresh compliance period.
+
+The order does have limits. It covers civilian executive-branch agencies — Treasury, State and Justice among them, per CNBC. The Defense Department and national-security systems fall to the Secretary of Defense, and intelligence systems to the Director of National Intelligence. They're excluded from this order, not from restrictions; the Pentagon, the Navy and NASA each banned DeepSeek months ago, and Commerce bureaus told staff back in January not to download or access anything DeepSeek-related. The new order turns a patchwork of one-off bans into one government-wide directive — and, notably, it bypasses Congress. A bipartisan bill, the No DeepSeek on Government Devices Act, has sat without a floor vote since February 2025. The FASCSA order accomplishes the same thing by executive action.
+
+Beijing, predictably, objected the same day. China's Foreign Ministry said it opposes overstretching the national-security concept — a line it has used for every Chinese tech ban since forever.
+
+Here's the delicious part: while Washington was unsealing a ban on DeepSeek's models, DeepSeek was [open-sourcing more of itself](https://thediaryofai.com/ai-news-20261020/). On Monday it released DeepInfer, the inference engine it says serves its V4.1 Flash model, under the Apache 2.0 license — with support for Huawei's Ascend chips, no less. A company that's simultaneously being excised from American government computers and publishing its plumbing on GitHub is the perfect summary of this moment in AI geopolitics: the models are everywhere and nowhere, banned and open at the same time.
+
+So what's the actual takeaway? Three things.
+
+First, this is a signalling document as much as a security one. A ban with an exception window nobody knew about, on models whose open weights make "developed using" nearly impossible to audit, is not a functioning compliance regime. It's a message to contractors: distance yourself from Chinese models, or the next order will name you.
+
+Second, the enforcement gap is real and growing. Distillation, synthetic data, fine-tuned derivatives — the whole modern AI stack is built by mixing and remixing open models. Drawing a legal line around one lab's weights while the weights are freely downloadable is like banning a river's source while the water's already downstream. The policy will chase the models for years.
+
+Third, expect the cascade. The US pattern is familiar: federal agencies first, allies next. South Korea and Australia already restricted DeepSeek earlier in its saga. The EU's AI Act machinery is watching. DeepSeek isn't going away — its models are too good and too open — but the circle of systems it can legally run inside is shrinking fast.
+
+Washington banned DeepSeek in July and announced it in October. Somewhere in between, the open weights did what open weights do: spread.
