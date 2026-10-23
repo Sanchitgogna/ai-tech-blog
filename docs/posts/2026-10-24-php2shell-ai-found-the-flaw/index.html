@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An AI found the flaw that knocked half the internet offline. Now comes the hard part. — AI Tech Blog</title>
+<meta name="description" content="Two critical PHP flaws dubbed php2shell, found with AI help, forced governments to take their websites offline this week. OpenAI calls it the start of a new phase in cybersecurity — one where the audit cycle is about to get dramatically shorter.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">24 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-safety/">AI safety</a></p>
+  <h1 class="post-title">An AI found the flaw that knocked half the internet offline. Now comes the hard part.</h1>
+  <p class="post-subtitle">PHP2Shell is the first internet-scale bug found by frontier AI — and the same models that found it can help attackers exploit it.</p>
+  
+  <div class="post-body">
+<p>On Wednesday, government IT teams did something they almost never do voluntarily: they switched their websites off.</p>
+<p>Finland&rsquo;s state IT centre took public web services offline as a precaution. The Netherlands&rsquo; national cybersecurity agency did the same — it pulled its <em>own</em> site. France followed. So did pages for the BBC and Edinburgh Council, and the Wikimedia Foundation preemptively shut down systems while it worked through the patch. It wasn&rsquo;t a hack. It was the response to one — or rather, to the possibility of millions of them.</p>
+<p>The culprit was hiding in PHP, the workhorse server language that quietly runs WordPress, Drupal, Joomla, and a huge chunk of everything else you touch online. Two bugs in the PHP engine itself — <a href="https://www.techcityauthority.com/2026/10/openai-php-critical-flaws-patch-the-planet.html">CVE-2026-109618 and CVE-2026-109619</a>, collectively dubbed <strong>php2shell</strong> — let an attacker run their own code on a server without logging in first. They score 9.2 out of 10 on the CVSS severity scale. OpenAI estimates PHP runs about 70% of websites; however you slice that figure, it&rsquo;s a lot of websites sharing one very bad day.</p>
+<p>Here&rsquo;s the part that matters for this blog: <strong>an AI found them.</strong></p>
+<p>Security firm Calif spotted the first flaw on August 1 using OpenAI&rsquo;s GPT-5.6 Sol model, as part of OpenAI&rsquo;s &ldquo;Patch the Planet&rdquo; initiative — a programme pairing frontier models with human security researchers for exactly this kind of hunt. Cloud security company Wiz, now part of Google Cloud, independently found both flaws on August 19 using its own tooling plus outside models including Gemini 4 Argon. Two separate AI-assisted teams, two weeks apart, converged on the same critical holes.</p>
+<p>And here&rsquo;s the unsettling detail: this bug class isn&rsquo;t new. Calif&rsquo;s CEO told the Wall Street Journal that researchers had <a href="https://trendintech.com/php2shell-ai-vulnerability-70-percent-websites-2026/">identified this kind of flaw decades earlier but considered exploiting it too difficult</a>. Humans found the lock but couldn&rsquo;t pick it. The AI picked it in a few dozen requests. That&rsquo;s not a faster researcher — that&rsquo;s a capability step. Wiz put it bluntly: &ldquo;frontier models were critical to making this process practical, enabling us to develop and adapt working exploits across multiple applications in hours.&rdquo;</p>
+<p>What followed was a two-month coordinated disclosure — PHP&rsquo;s volunteer maintainers rewriting deep engine code, Cloudflare building mitigations, government agencies brought in quietly. Then the plan sprang a leak: details surfaced on social media the day before the announcement, forcing the PHP Foundation to <a href="https://www.techcityauthority.com/2026/10/openai-php-critical-flaws-patch-the-planet.html">rush the patches out early</a>. Cloudflare&rsquo;s CTO reported seeing early attacks within hours of the leak. The fixes shipped Wednesday: PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.</p>
+<p>OpenAI is framing all this as a win, and honestly, they&rsquo;re entitled to some credit. The company calls it a <strong>&ldquo;Defender&rsquo;s Window&rdquo;</strong> — frontier AI found the vulnerability ahead of attackers, giving the good guys time to prepare. It says it committed $1 billion in subsidised access to its security tools for under-resourced groups protecting essential services, and published a draft playbook for handling future AI-found bugs.</p>
+<p>But read the fine print of OpenAI&rsquo;s own announcement and the victory lap gets wobbly. The same post that celebrates the Defender&rsquo;s Window admits the capabilities that found php2shell &ldquo;can also help attackers rapidly develop offensive tools and exploits.&rdquo; OpenAI expects findings like this to rise sharply in the coming months. The window only holds while defenders have better tools than attackers — and both sides are shopping at the same AI vendors.</p>
+<p>And the patching reality is grim. Censys data puts about 1.5 million of 2.6 million PHP-reporting hosts on a version with no official fix. PHP 7 and 5 still run on a big share of PHP sites and are long out of support. PHP quietly powers shared hosting platforms, control panels, and software that doesn&rsquo;t even advertise it runs PHP under the hood — the long tail of the internet is going to be patching this for months, and some of it will never be patched.</p>
+<p><strong>What should you do?</strong> If you run a server: update PHP to one of the patched versions now, or install your Linux distribution&rsquo;s backported fix. If you&rsquo;re on managed or WordPress hosting: ask your provider whether they&rsquo;ve patched — don&rsquo;t assume. If you&rsquo;re just someone who visits websites: nothing. The scramble is happening on the other side of the screen, which is why half of it went dark.</p>
+<p>The takeaway is bigger than one bug. AI doesn&rsquo;t just write our code anymore — it audits the foundations the code stands on. For decades, a serious bug sat in one of the most-used languages on Earth because humans couldn&rsquo;t figure out how to exploit it. A model did it in August, and we found out in October because someone leaked. Next time the model won&rsquo;t need a leak, the disclosure window will be shorter, and there will be more bugs in the queue.</p>
+<p>OpenAI&rsquo;s researchers say they already have &ldquo;several significant vulnerabilities&rdquo; lined up and expect similar findings to increase sharply. The web&rsquo;s immune system — volunteer maintainers, patched hosts, emergency maintenance windows — is about to learn what it feels like to be audited continuously, by machines that never sleep.</p>
+<p>This week, the auditors gave the defenders a two-month head start. Enjoy the memory. Next time, the clock might be measured in days.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[TechCity Authority](https://www.techcityauthority.com/2026/10/openai-php-critical-flaws-patch-the-planet.html)</li><li>[Zotpaper](https://zot.news/article/emergency-php-patches-issued-critical-remote-code-execution-qt2lx)</li><li>[TrendInTech](https://trendintech.com/php2shell-ai-vulnerability-70-percent-websites-2026/)</li><li>[Artiverse](https://www.artiverse.ca/gpt-56-sol-uncovers-php-flaws-threatening-70-of-the-web/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
