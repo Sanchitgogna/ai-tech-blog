@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google&#x27;s Genie 4 isn&#x27;t a video generator. It&#x27;s a place you can walk into — and rewrite mid-stride — AI Tech Blog</title>
+<meta name="description" content="Google DeepMind&#x27;s Genie 4, announced 27 October, generates explorable simulated worlds in real time — with native audio, live prompt editing, and steerable characters. It&#x27;s a research preview for trusted testers, not a product yet, and its two-minute attention span is the most honest thing about it.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">29 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-tools/">AI tools</a><a class="tag" href="/ai-tech-blog/tags/google/">Google</a><a class="tag" href="/ai-tech-blog/tags/explainer/">explainer</a></p>
+  <h1 class="post-title">Google&#x27;s Genie 4 isn&#x27;t a video generator. It&#x27;s a place you can walk into — and rewrite mid-stride</h1>
+  <p class="post-subtitle">A world model that simulates somewhere you can explore, complete with sound, weather you can change, and people who talk back. For about two minutes, anyway.</p>
+  
+  <div class="post-body">
+<p>There is a difference between a video and a world, and Google DeepMind would very much like you to notice it.</p>
+<p>A video plays. A world responds. On 27 October, DeepMind announced Genie 4, its fourth world model, and the pitch is exactly that: not a clip you watch, but a place you move through, in real time, while it keeps simulating what happens next. You navigate with keyboard controls and a camera. And while the scene is running, you can type a plain-language instruction — change the weather, move the camera, drop in a new person or object — and the world rewrites itself around you.</p>
+<p>The headline upgrade is sound. Genie 4 is DeepMind&rsquo;s first real-time world model to generate audio natively: wind in the trees, waves at the beach, background music and characters talking back are all produced by the model at the same time as the visuals. Previous world models were silent films. This one talks.</p>
+<p>That matters more than it sounds. A silent simulation is a diorama. Add dialogue that adapts on the fly, and the characters in it are not props — they react to what you do and to events in the world. DeepMind says the biggest leap in this version is people: characters who move naturally, respond to their environment, and can be steered in real time.</p>
+<p>So how does it hold together? With a committee. Gemini Omni anchors how the simulated world looks and behaves, while other Gemini models supply the reasoning that keeps the scene coherent between your inputs. For complicated, multi-step events, Gemini 3.8 Flash acts as a guiding agent in the loop: it watches the scene, breaks a goal into steps, checks each frame to see whether the step actually worked, and adjusts the plan as the world shifts or you intervene.</p>
+<p>That division of labour is also the point of the whole exercise. DeepMind describes understanding and simulating the world as a crucial aspect of building AGI, and the practical payoff it keeps coming back to is robotics. In one documented experiment, Gemini 4 Argon broke a task into steps while Genie 4 simulated Apptronik&rsquo;s Apollo humanoid playing checkers, adapting as the game progressed. A robot that can practise in infinite simulated worlds never has to break a real one while learning.</p>
+<p>The other audiences DeepMind names are more immediately human. Filmmakers are testing Genie 4 as a rapid &ldquo;draft mode&rdquo; for pre-visualisation — stepping into a live simulation and running multiple takes while adjusting camera angles, lighting, dialogue and action. Photojournalists are exploring how a single 2D archival photograph can become a grounded simulation of that environment in seconds. Game developers are checking whether they can go from an idea to an explorable prototype in seconds, before writing engine code.</p>
+<p>It is a good story. Here is the part that keeps it honest: the world only lasts about two minutes.</p>
+<p>Coverage from The Verge and TechCrunch puts Genie 4&rsquo;s scene consistency at up to about two minutes, roughly double its predecessor. DeepMind itself is blunter about the edges. Visual details and object permanence can shift or drift over time, especially in longer sessions, after several complex prompt edits, or when navigating through a scene. It cannot simulate real-world locations with perfect accuracy. Audio accuracy, complex interactions, legible text, spatial accuracy and long-term consistency are all listed as ongoing research. In other words, the world is convincing until you stare at it too long — and then it starts forgetting itself.</p>
+<p>That is not a flaw to hide; it is the whole state of the field. A world model has to predict everything, continuously, and every prediction is a chance to drift. Two minutes of coherence is genuinely impressive. It is also a very short leash for anyone imagining a persistent virtual world or a reliable robot training ground.</p>
+<p>Access reflects that early state. Genie 4 is a research preview for trusted testers. It is coming soon to Project Genie for Google AI Ultra subscribers and to early-access partners through the Gemini API and Google AI Studio, with a waitlist open — but there is no general public release yet, and DeepMind has not settled what the final product even is. All video and audio it generates will carry SynthID, DeepMind&rsquo;s imperceptible watermark.</p>
+<p>Genie 4 is also not arriving into an empty room. The field is crowding fast: Runway has its GWM Worlds 2, AMD is buying Fei-Fei Li&rsquo;s World Labs, and Rivian has bought simulation startup Third Dimension for self-driving tests. Everyone with a robotics or gaming ambition seems to have decided, at roughly the same moment, that generating video is not enough — you need to generate somewhere.</p>
+<p>That is the takeaway worth keeping. The last few years of AI were about generating content: text, images, video. Genie 4 points at the next shift, from content you consume to environments you inhabit, however briefly. The demo is a world you can walk into and rewrite while you are standing in it. The limitation is that it forgets itself after two minutes. Whoever stretches those two minutes into twenty, and then into hours, will own the training ground for every robot and agent that comes after.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Unite.AI](https://www.unite.ai/google-deepmind-rolls-out-genie-4-world-model-in-research-preview/)</li><li>[Skimwire](https://www.skimwire.com/google-deepmind-genie-4-world-model-audio/)</li><li>[Okay News](https://www.okaynews.com/google-genie-4-research-preview-october-27-2026/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
