@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The four biggest AI labs just agreed on something. It&#x27;s two lines in a text file. — AI Tech Blog</title>
+<meta name="description" content="On 30 October, OpenAI, Google, Microsoft and Anthropic all backed a shared robots.txt token, __usage_ai-training, that lets a site opt out of AI training across every participating company at once. It is real progress — and it does not do nearly as much as the headlines suggest.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">31 October 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-policy/">AI policy</a><a class="tag" href="/ai-tech-blog/tags/ai-tools/">AI tools</a></p>
+  <h1 class="post-title">The four biggest AI labs just agreed on something. It&#x27;s two lines in a text file.</h1>
+  <p class="post-subtitle">One robots.txt token now lets a website opt out of AI training across OpenAI, Google, Microsoft and Anthropic — with a long list of caveats attached.</p>
+  
+  <div class="post-body">
+<p>For once, the four biggest AI labs agree on something. Given the last few weeks — duelling letters to California&rsquo;s governor about kill switches, a price war fought with 90 percent discounts, an IPO filing that reads like a confession — that alone is worth pausing over. This time, though, the agreement is not about a model, a market, or a law. It is about two lines in a text file.</p>
+<p>On 30 October, OpenAI, Google, Microsoft and Anthropic all said they will honour a single shared signal in robots.txt — the humble file websites have used for decades to tell crawlers what they may and may not touch. The signal is a policy token called <code>__usage_ai-training</code>. A site that wants out of AI training writes this:</p>
+<pre><code>User-Agent: __usage_ai-training
+Disallow: /
+</code></pre>
+<p>And that, in theory, is it. One entry, every participating company. Want to opt out of everything except your press kit? Add <code>Allow: /press-kit/</code> underneath. No new directives, no new grammar — the draft behind it deliberately leaves the robots.txt standard, RFC 9309, untouched, so existing parsers just ignore the token the way they ignore any user agent they do not recognise.</p>
+<p>Until now, opting out meant keeping a list: GPTBot, Google-Extended, ClaudeBot, plus a growing tail of smaller crawlers. Every new lab meant a new line, and every missed line meant a loophole.</p>
+<p>The paperwork behind the announcement deserves the same care as the announcement itself. The token comes from an Internet-Draft titled &ldquo;Machine-Readable Training Preference Signal,&rdquo; written by Kevin Kelley of Anthropic and dated 30 October, under the Internet Engineering Task Force&rsquo;s AI Preferences working group. It is an individual draft, not a formal standard — the IETF&rsquo;s own datatracker notes it &ldquo;is not endorsed by the IETF and has no formal standing in the IETF standards process&rdquo; — and it expires on 3 May 2027 unless updated. This is a promise dressed as a draft, not a law dressed as a standard.</p>
+<p>Then there is the timeline, best described as staggered. Anthropic says it has already begun implementing support. OpenAI says it aims to implement the signal &ldquo;in the coming months.&rdquo; Microsoft targets 1 February 2027. Google says 2027, with no month attached. Add those two lines to your robots.txt today and nothing changes today. The opt-out is published; the honouring of it is still arriving, company by company.</p>
+<p>And even when it arrives, it will not do what many people will assume it does. This is the part that matters most, so let us be precise.</p>
+<p>First, the token governs training, not fetching. The draft says so explicitly: it &ldquo;is not a directive for crawling behavior.&rdquo; Bots may still pull the page. It does not block search indexing, and it does not stop a page from being quoted in AI-written search answers — which, for publishers watching their traffic drain into chatbots, is arguably the use that hurts most. Opting out of training and opting out of being answered-from are two different doors, and this token only closes one of them.</p>
+<p>Second, it is voluntary, and it only binds the companies that choose to follow it. OpenAI frames the mechanism as &ldquo;a coordination mechanism rather than a security control,&rdquo; a polite way of saying a scraper that ignores robots.txt will keep ignoring it. Nothing here reaches the bad actors, the data brokers, or the labs that never signed up.</p>
+<p>Third, it is not retroactive. Updating robots.txt does not remove material already collected into datasets or baked into trained models. The token speaks to the future, not the past — and the past is where most of the training data already lives.</p>
+<p>Microsoft went furthest on the practical details: a page-level training setting, a separate &ldquo;AI Grounding&rdquo; setting for Bing, Copilot and Microsoft 365 answers, and a <code>DisallowExtended</code> option for grounding in its own products only. These replace Bing&rsquo;s old NoArchive and NoCache tags, and sites relying on those have until 1 March 2027 to switch. Microsoft is also blunt: &ldquo;Neither choice guarantees inclusion, traffic, or payment.&rdquo;</p>
+<p>So is this a win? Yes, but a narrow one, and the narrowness is the story. For years the debate over AI training and publishers&rsquo; rights has been stuck between two unworkable positions: individual opt-outs nobody can maintain, and lawsuits that take years and settle nothing for the small site in the middle. A single shared token is the first mechanism actually usable by a blogger, a local newspaper, or a photographer with a portfolio site — which, not coincidentally, is most of the web. It turns a chore into a choice.</p>
+<p>But a choice is all it is. It does not pay publishers, it does not restore traffic, it does not undo training that already happened, and it does not bind anyone who declines to be bound. The labs have agreed on the easy part — a common vocabulary for saying no — while the hard parts, payment and attribution and answers, remain exactly where they were.</p>
+<p>Still, do not underestimate the boringness of this news. Robots.txt itself was never a law; it was a convention that worked because everyone agreed to pretend it mattered, until it did. If this token follows the same path, 30 October will look like the day publishers finally got a door they could close. Just check which rooms it locks, and which ones it leaves wide open.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Unite.AI](https://www.unite.ai/openai-to-honor-shared-robots-txt-signal-for-ai-training-preferences/)</li><li>[Search Engine Land](https://searchengineland.com/google-also-gives-publishers-more-control-over-how-ai-uses-their-content-499971)</li><li>[Skimwire](https://www.skimwire.com/ai-training-opt-out-robots-txt-openai-google-microsoft-anthropic/)</li><li>[AI Weekly](https://aiweekly.co/alerts/openai-google-microsoft-anthropic-back-one-ai-opt-out-token)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
