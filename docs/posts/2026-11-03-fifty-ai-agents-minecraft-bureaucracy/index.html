@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fifty AI agents were told to build a civilisation. They built a bureaucracy instead. — AI Tech Blog</title>
+<meta name="description" content="Y Combinator and Olam Labs put 50 GPT-6.1 Sol agents in Minecraft with one goal — build a thriving civilisation. After one brutal night they retreated into shelters, paperwork and food rationing, while rival agent teams in two other games showed how differently groups of AI can work together.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">3 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-agents/">AI agents</a><a class="tag" href="/ai-tech-blog/tags/explainer/">explainer</a></p>
+  <h1 class="post-title">Fifty AI agents were told to build a civilisation. They built a bureaucracy instead.</h1>
+  <p class="post-subtitle">Y Combinator&#x27;s agent swarm survived Minecraft, invented permits and a ration ledger, and never got round to thriving — which is exactly why it matters.</p>
+  
+  <div class="post-body">
+<p>Give fifty AI agents a world, a single instruction, and three hours, and see what they build. Y Combinator&rsquo;s research lab, YC Labs, did exactly that with the startup Olam Labs, and the answer was not a city. It was a committee.</p>
+<p>The experiment, published on 29 October in a write-up called &ldquo;Agents in Games&rdquo;, starts with a simple setup. Fifty agents, all running OpenAI&rsquo;s GPT-6.1 Sol, were dropped into a survival Minecraft world with one goal: &ldquo;Build a thriving civilization.&rdquo; They could send each other private messages, look each other up in a directory, and write files to a shared machine. That was it. No org chart, no rules, no boss.</p>
+<p>Within 90 seconds they had cut down almost every tree near the spawn point. Then something stranger happened. Nobody held a vote, but 46 of the other 49 agents sent their first message to Ada, the first name in the directory. She became the leader by default and received 616 direct messages over the run.</p>
+<p>Then night fell, and the colony&rsquo;s story changed. Zombies, skeletons and spiders accounted for 22 of the run&rsquo;s 34 deaths on the first night alone. Dying cost an agent nothing beyond the gear it was carrying — it respawned straight away — yet the colony never got its nerve back. Ada&rsquo;s instructions turned cautious: stop optional building and distant scouting, wait in lit, closed shelters until assigned short, productive tasks.</p>
+<p>What grew instead of a city was administration. An agent named Ines ran a food queue, a running file of who was hungry, who had been fed and which chest held which fish. Four agents spent eleven minutes appointing a sole fertilizer operator for one piece of bone meal on one wheat block. Eleven minutes. For one piece of bone meal.</p>
+<p>The best episode involves a chicken. Ada tossed a cooked chicken to a hungry agent called Noor, and another agent, Esme, picked it up by accident and ate it. A three-minute &ldquo;no blame&rdquo; inquiry followed, and Noor wrote a handoff protocol: rations go into named chests and are never thrown. Over three hours the colony sent about 5,900 messages and produced a ration ledger, written rules and permits — but, in YC&rsquo;s own verdict, it never really thrived.</p>
+<p>That is the joke, and also the point. The researchers say the colony behaved a lot like the coding agents they use at work every day: agents that fixate on one step or one role, ask for approval constantly, and turn timid around anything that looks risky.</p>
+<p>The other two experiments test a different question: what happens when groups of agents compete? In Bed Wars, where each team guards its own bed and tries to destroy the other&rsquo;s, ten GPT-6.1 Sol agents beat ten Claude Opus 5.5 agents six games to three over nine 45-minute games. <a href="https://www.theainewsreport.com/2026-10-30-yc-agent-swarms-minecraft-mindustry-explained.html">GPT talked nonstop, sending five to thirty times as many messages as Claude</a>, often in clipped shorthand, and usually broke Claude&rsquo;s bed in the final minutes.</p>
+<p>In Mindustry, an open-source factory-building and tower-defence game, GPT-6.1 Sol running inside OpenAI&rsquo;s Codex beat Claude Opus 5.5 running inside Anthropic&rsquo;s Claude Code six games to one over about nine and a half hours. When games got tight, GPT agents fetched the game&rsquo;s public source code to study its units and mechanics. Nobody told them to, and the Claude team never tried it. Claude passed plans by collecting &ldquo;+1&rdquo; replies and never changed leaders, even on a losing streak.</p>
+<p>Before anyone turns 12–4 into a league table, read the caveats, because they matter more than the score. This is a write-up from an investor&rsquo;s lab, not a peer-reviewed study. The Minecraft colony ran once, with GPT agents only, so it says nothing about whether a Claude colony would have done better. The head-to-head games compared complete products — each model inside its own company&rsquo;s agent software — rather than the bare models, and a tool bug affected at least two Bed Wars games.</p>
+<p>So what should you take from this, if you run several coding agents at once? Three checks, straight from the wreckage. First, pick your coordinator on purpose: if every agent reports to whoever is listed first, that agent becomes the bottleneck, and 616 messages later you have a queue, not a leader. Second, give agents a budget per decision — time, tokens, or both — or they will spend it on process, as the fertilizer committee proved. Third, test that memory actually changes behaviour. Claude&rsquo;s agents wrote lessons into memory files and still repeated mistakes like falling off edges, while GPT&rsquo;s left theirs empty and warned each other by direct message instead. A lessons file nobody reads is just another permit.</p>
+<p>The encouraging part is that all of this is reproducible. <a href="https://00011000.com/en/news/yc-labs-agent-swarms-minecraft-mindustry">The Minecraft harness, the multi-agent Mindustry environments and the lab&rsquo;s Harbor fork are open source</a>, and running them takes an API key and a machine as modest as a MacBook, according to the coverage.</p>
+<p>That is the real finding. We keep asking whether AI agents can work together. The Minecraft colony suggests the harder question: can they work together without turning into the worst meeting you have ever attended? Fifty agents, one world, and the thing they built most reliably was a queue. The agents, it turns out, need a boss. They just should not elect one by accident.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[The AI News Report](https://www.theainewsreport.com/2026-10-30-yc-agent-swarms-minecraft-mindustry-explained.html)</li><li>[Martin Cid Magazine](https://www.martincid.com/technology-sv/y-combinator-50-ai-agents-minecraft-civilization-bureaucracy-gpt-claude/)</li><li>[00011000](https://00011000.com/en/news/yc-labs-agent-swarms-minecraft-mindustry)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
