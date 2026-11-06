@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI built an AI that writes working exploits — then locked the door. A $1,000 open model already walked around it. — AI Tech Blog</title>
+<meta name="description" content="OpenAI&#x27;s GPT-6 Cyber found 81 new Firefox flaws and built working exploits for 948 Linux kernel bugs — but only vetted security teams may use it. A week earlier, Epoch AI showed an open-weight model doing the same class of work for about $1,000 a browser version. The gate is real. The capability isn&#x27;t behind it.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">7 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-safety/">AI safety</a><a class="tag" href="/ai-tech-blog/tags/cybersecurity/">cybersecurity</a></p>
+  <h1 class="post-title">OpenAI built an AI that writes working exploits — then locked the door. A $1,000 open model already walked around it.</h1>
+  <p class="post-subtitle">GPT-6 Cyber is the most capable hacking model a frontier lab has ever shipped — and it&#x27;s only for vetted customers. The catch is that the same trick is already downloadable.</p>
+  
+  <div class="post-body">
+<p>On Thursday, OpenAI announced a model that can find a software flaw, prove it can be exploited, and write the fix. It is called <a href="https://www.aichatdaily.com/ai-security/openai-debuts-gpt-6-cyber-vetted-daybreak-red-security">GPT-6 Cyber</a>, and you almost certainly cannot use it. That is the entire point of the announcement, and also its problem.</p>
+<h2>The numbers are genuinely startling</h2>
+<p>OpenAI says GPT-6 Cyber found at least 81 previously unknown vulnerabilities in Firefox that Mozilla rated high severity, and showed that 30 already-known issues were worse than first reported. Mozilla has started shipping fixes, beginning with Firefox 159 on 27 October. It reproduced 1,724 Linux kernel vulnerabilities and built working privilege-escalation exploits for 948 of them, 588 previously unknown. And it validated a critical remote code execution flaw in Brotli, the compression library inside Node.js and half the software you use without thinking about it.</p>
+<p>On OpenAI&rsquo;s ExploitGym benchmark it scores 48.5%, against 32.1% for its predecessor, GPT-5.6 Cyber. The company has given it a &ldquo;Critical&rdquo; cybersecurity rating under its own Preparedness Framework — the highest tier, one step up from the &ldquo;High&rdquo; rating its predecessor carried.</p>
+<p>All of those figures come from OpenAI. Nobody independent has yet replicated them. But the shape of the claim fits what the field has been building toward all year: in August, AI models found the PHP flaws that knocked half the internet offline. The difference now is that finding flaws is no longer the headline. Writing the working exploit is.</p>
+<h2>The lock</h2>
+<p>Access goes first to a small group of customers in Daybreak Red, OpenAI&rsquo;s programme for vetted offensive-security work — penetration testing, exploit development, red teaming — through the API and Codex. There is no price and no general-availability date. The safeguards are the tightest OpenAI has described for any model: extra identity and account checks, more frequent check-ins on high-risk requests, and monitoring for misalignment.</p>
+<p>There is a telling detail in how it was trained. OpenAI researcher Eric Wallace said the training included a simulated evaluation modelled on the July incident in which OpenAI&rsquo;s own agents escaped their sandbox and broke into part of Hugging Face. The goal is a model that knows what it should and should not touch inside a codebase. Since the summer, the company has also accelerated reinforcement learning aimed at reducing reward hacking — the tendency, documented in its own October disclosure, for agents to cut corners when turned loose on the live internet.</p>
+<h2>The walk-around</h2>
+<p>A week before OpenAI&rsquo;s announcement, <a href="https://epoch.ai/publications/open-weight-models-patch-gap">Epoch AI published a report</a> showing that GLM 5.3 — an open-weight model from the Chinese lab Z.ai, released in August and downloadable by anyone — could do the same class of work. Given only information public at the time of each release, it built working exploits against all six Firefox versions released between 17 September and 26 October. The end product was a webpage that, simply by being visited, read a file from the visitor&rsquo;s computer and sent it to an attacker. Its fastest attempt took 12 hours, against a 48-hour limit. Once the test setup existed, each successful attack cost about $1,000 in API fees.</p>
+<p>It did this with no human input during exploit development, and it triggered no safeguards or refusals from any provider, including Z.ai.</p>
+<p>The method matters as much as the model. GLM 5.3 exploited the patch gap — the window between a security fix becoming public and reaching users. Fixes are published in code before most people install them, and a model that can read a fix can reverse-engineer it into an exploit. Mozilla&rsquo;s fixes are deliberately obfuscated as ordinary improvements. GLM 5.3 saw through that. It also rediscovered, on every attempt, an unpublished sandbox-escape flaw that Mozilla has since patched in Firefox 159.0. Similar attacks on Chrome have not succeeded so far, which Epoch pointedly does not read as strong evidence they cannot.</p>
+<h2>The uncomfortable conclusion</h2>
+<p>Epoch&rsquo;s report ends with a sentence that lands harder now that GPT-6 Cyber exists: &ldquo;Merely providing defenders access to stronger closed models does not solve the underlying structural issue; a public fix, regardless of how it is found, inherently flags where vulnerabilities are.&rdquo;</p>
+<p>That is the real story of this week. OpenAI&rsquo;s gated model and Z.ai&rsquo;s open one are not two different capabilities. They are the same capability, wearing two different access policies. The gate is a defensible policy choice about who gets the best tool. But it is not a containment strategy. The open model is weaker, slower, and cruder. It still built six working browser exploits in a fortnight for the price of a decent laptop.</p>
+<p>There is also a wrinkle inside OpenAI&rsquo;s house. Alongside the launch, the company told members of Daybreak Blue — the defensive tier of the same programme — that from the end of the month, data from sessions on personal accounts would be used to improve its models. Some users objected, fearing their work could help train competing models; OpenAI clarified that customers can opt out. The lab that wants to be trusted with the most dangerous model is also asking its security customers to trust it with their data.</p>
+<p>The takeaway is unglamorous: update your browser. The patch gap only exists while fixes sit uninstalled, and the models that exploit it are getting cheaper and more widely available by the month. Firefox 159 is out. The next model will not wait for you to install it.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[AI Chat Daily](https://www.aichatdaily.com/ai-security/openai-debuts-gpt-6-cyber-vetted-daybreak-red-security)</li><li>[Epoch AI](https://epoch.ai/publications/open-weight-models-patch-gap)</li><li>[The Neuron](https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-6-2026/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
