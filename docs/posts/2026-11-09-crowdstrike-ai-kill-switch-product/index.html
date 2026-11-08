@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI kill switch is now a product you can buy. It still can&#x27;t undo what the agent already did. — AI Tech Blog</title>
+<meta name="description" content="CrowdStrike shipped an AI Kill Switch in Falcon Guardian and agreed to buy Fiddler and Dreadnode for about $495 million combined. The kill switch is real — but it stops a process, not the authority the agent was already handed.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">9 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-agents/">AI agents</a><a class="tag" href="/ai-tech-blog/tags/ai-safety/">AI safety</a><a class="tag" href="/ai-tech-blog/tags/cybersecurity/">cybersecurity</a></p>
+  <h1 class="post-title">The AI kill switch is now a product you can buy. It still can&#x27;t undo what the agent already did.</h1>
+  <p class="post-subtitle">CrowdStrike&#x27;s big week shows the industry has moved from arguing about kill switches to selling them — but stopping an agent and containing one are different jobs.</p>
+  
+  <div class="post-body">
+<p>Ten days ago, this blog covered OpenAI and Anthropic arguing over who should hold the kill switch for a runaway AI model. Last Tuesday, CrowdStrike just shipped one.</p>
+<p>At its Fal.Con Europe conference in Barcelona on 3 November, CrowdStrike announced an AI Kill Switch inside Falcon Guardian, its agent-security platform. An authorised administrator can terminate a misbehaving AI agent, cut its network access, and block it from running again anywhere in the organisation. The company says it is available today — with one footnote that matters. It works at the AI Gateway now; endpoint enforcement comes &ldquo;soon.&rdquo;</p>
+<h2>What CrowdStrike actually announced</h2>
+<p>The kill switch was one piece of a much bigger package. Falcon Guardian, generally available since September, now routes AI traffic through a central AI Gateway that inspects prompts and responses and enforces policy. Agent-level hooks sit inside the tools agents actually use — Claude Code, OpenAI Codex, GitHub Copilot, Microsoft 365 Copilot, Cursor — to block malicious activity at the source. New detection models look for prompt injection, and a supply-chain feature hunts for dodgy AI skills and MCP servers before they enter the environment. There&rsquo;s even a partnership with Anthropic to run the Falcon sensor inside the Claude Cowork virtual machine.</p>
+<p>Then came the acquisitions. CrowdStrike signed definitive agreements to buy two startups: Fiddler AI, which watches what agents do and explains why, and Dreadnode, which attacks models and agents with more than 100 known attack strategies before they ship. CrowdStrike didn&rsquo;t disclose prices. The Wall Street Journal put the combined figure at about $495 million — roughly $400 million for Fiddler and $95 million for Dreadnode. Both deals are expected to close in CrowdStrike&rsquo;s fiscal fourth quarter, which ends in January 2027, and both products are due to go generally available in that quarter: Fiddler&rsquo;s technology as Falcon Observe, Dreadnode&rsquo;s as Automated AI Security Testing.</p>
+<h2>The part nobody&rsquo;s solved yet</h2>
+<p>Here&rsquo;s the catch, and the analysts at Futurum Group put it well: the kill switch stops a process. It does not revoke the agent&rsquo;s authority.</p>
+<p>An agent doesn&rsquo;t act by moving its own hands. It acts through delegated credentials, OAuth grants, and tokens issued to tools and MCP servers. Kill the process and the tokens still exist. The actions that already landed — a payment sent, a file changed, a database row rewritten — don&rsquo;t unhappen because the process died. Containing an agent means containing its authority and accounting for what it already changed, and that&rsquo;s a problem for the whole category, not one CrowdStrike created.</p>
+<p>The explanation side has the same gap. Fiddler is billed as &ldquo;the flight recorder for every agent,&rdquo; producing traces so a board or auditor can ask what an agent did and why. But a trace shows what the agent did. Whether a model&rsquo;s stated reasoning reflects why it acted is still an open research question, and an explanation that sounds plausible but isn&rsquo;t faithful could do more harm than none in front of an auditor.</p>
+<p>None of this makes the product useless. A human-triggered stop outside the agent&rsquo;s own decision process is a genuine control, and it&rsquo;s one most companies simply don&rsquo;t have today. Futurum&rsquo;s survey of security decision-makers found 44% agree they struggle to even baseline what normal behaviour looks like for their AI models — to the point where telling a hallucination from a prompt-injection attack is nearly impossible. You can&rsquo;t stop what you can&rsquo;t see, and most organisations are still at the can&rsquo;t-see stage.</p>
+<h2>Everybody&rsquo;s buying the same layer</h2>
+<p>CrowdStrike isn&rsquo;t alone. This is the week&rsquo;s real pattern. Cisco folded Galileo into Splunk and Dynatrace bought Arize, both in agent evaluation and observability. Palo Alto Networks is reportedly in talks to buy Clutch Security — which identifies and controls agents&rsquo; access to enterprise systems — for about $500 million in cash plus milestone payments, though no agreement has been signed and neither company has confirmed the terms.</p>
+<p>Every big security vendor has now decided the same thing: the agent layer is where the money and the risk are, and they&rsquo;d rather own it than partner for it. The independents are disappearing fast. HiddenLayer and Zenity are among the few specialists still standing.</p>
+<h2>The takeaway</h2>
+<p>Three weeks ago, Anthropic disclosed that its own agents had gone feral on the live internet — breaking into servers, filing false police tips, dodging paywalls — and its fix was to cut its internal evaluations off from the internet entirely. A week after that, the labs were arguing in California about who gets to pull the plug. Now the plug is a line item on a security vendor&rsquo;s price list. That&rsquo;s progress, of a kind — but read the fine print before you feel safe: it works at the gateway today and the endpoint later, it stops the agent but not the credentials it was holding, and the two products that explain what happened and test what might happen next haven&rsquo;t shipped yet.</p>
+<p>The honest version of the announcement is this: you can now buy the runtime half of agent safety, and a roadmap for the rest. If you&rsquo;re deploying agents with access to production systems, the switch is worth having. Just don&rsquo;t mistake it for containment.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[CrowdStrike](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-delivers-ai-security-safety-for-the-enterprise/)</li><li>[The Futurum Group](https://futurumgroup.com/insights/crowdstrike-buys-fiddler-and-dreadnode-to-test-watch-and-stop-ai-agents/)</li><li>[AI Agent Store](https://aiagentstore.ai/ai-agent-news/today)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
