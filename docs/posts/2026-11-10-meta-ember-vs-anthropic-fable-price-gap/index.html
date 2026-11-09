@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta launched a 10-cent model and Anthropic launched an $8 one on the same day. The gap is the story. — AI Tech Blog</title>
+<meta name="description" content="On 9 November, Meta shipped Muse Ember at $0.10 per million input tokens while Anthropic shipped Claude Fable 5.2 at $8. The 80x price gap isn&#x27;t a pricing war — it&#x27;s the industry admitting that &#x27;an AI model&#x27; is now two very different products.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">10 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/comparison/">comparison</a><a class="tag" href="/ai-tech-blog/tags/ai-agents/">AI agents</a><a class="tag" href="/ai-tech-blog/tags/ai-tools/">AI tools</a></p>
+  <h1 class="post-title">Meta launched a 10-cent model and Anthropic launched an $8 one on the same day. The gap is the story.</h1>
+  <p class="post-subtitle">Muse Ember does the boring work for almost nothing; Claude Fable 5.2 does the spectacular work for a fortune. The AI market has quietly split in two.</p>
+  
+  <div class="post-body">
+<p>Two frontier labs launched new models on the same day, Monday 9 November. One costs ten cents per million input tokens. The other costs eight dollars. That is not a rounding error, and it is not really a price war either. It is the AI market quietly splitting into two products that happen to share the name &ldquo;model&rdquo;.</p>
+<p>Meta&rsquo;s entry is Muse Ember, the smallest and cheapest model in its Muse family. It is built for the work AI agents repeat all day: calling tools, running coding subtasks, routing requests, pulling facts out of long documents. It costs $0.10 per million input tokens and $0.50 per million output tokens, with cached input at $0.004, a 1-million-token context window and up to 512,000 output tokens. <a href="https://research.meta.ai/blog/muse-ember">Meta&rsquo;s own pitch</a> is that Ember matches Claude Haiku 5.5&rsquo;s best score on the Artificial Analysis Intelligence Index — 36 — at about a third of the cost per task: $0.14 against Haiku&rsquo;s $0.41.</p>
+<p>Anthropic&rsquo;s entry is Claude Fable 5.2, alongside Claude Mythos 5.2 — the same underlying model with different locks. Fable is the one anyone can use; Mythos, with fewer safeguards for cybersecurity and life-sciences work, goes only to organisations vetted through Anthropic&rsquo;s verification programmes. Fable costs $8 per million input tokens and $40 per million output, down from $10 and $50 for the 5.1 versions, and Anthropic says it generates output up to 30 per cent faster. It is aimed at the most demanding technical work: coordinating more than 1,000 agents at once, advanced software engineering, hardware design, even controlling robots.</p>
+<h2>The cheap one is the honest one</h2>
+<p>Here is the part worth sitting with. Ember&rsquo;s headline prices are identical to Haiku 5.5&rsquo;s and OpenAI&rsquo;s GPT-6 Luna — $0.10 and $0.50. Meta has not cut the price of a token. What it claims is that Ember does more work per token: fewer tokens burned per finished job, cheaper cached input, shorter outputs. That is a narrower claim than &ldquo;we made intelligence cheaper&rdquo;, and a more believable one. <a href="https://research.meta.ai/blog/muse-ember">Meta says</a> Ember is the first model trained using Muse Wonder Full, its biggest model, and it positions the family as a division of labour: Wonder plans, Spark handles coding and agentic workflows, Ember does the volume.</p>
+<p>That division of labour is the real announcement. Agents spend most of their tokens on small structured steps — read a file, run a test, call an API, check a result. Sending every one of those steps to a frontier model is like hiring a barrister to open your post. Ember exists because the economics of agents only work if the boring steps are nearly free. Meta&rsquo;s framing is blunt about it: a cost &ldquo;low enough to run in every product, for everyone&rdquo;.</p>
+<h2>The expensive one is the showpiece</h2>
+<p>Fable 5.2&rsquo;s launch was a parade of spectacles, and the honest thing to do is report them as Anthropic&rsquo;s claims, because most of them are not independently verified. A team of 1,000 Fable agents formalised the proof of Fermat&rsquo;s Last Theorem in the Lean language in 30 hours; the same setup running Opus 5.5 managed 26 per cent of it in 18 hours. Two preprints claim new results in black-hole physics — preprints, not peer-reviewed papers. One tester built a browser spreadsheet over 50 hours at an estimated US$11,700 of tokens. Another built a playable shooter in Unreal Engine over three days at roughly US$15,000.</p>
+<p>The early testers were candid about the bill, at least. Every&rsquo;s chief executive Dan Shipper said the projects his staff built were &ldquo;slow and burns through tokens&rdquo; and that their early access was free — &ldquo;these projects would have been expensive at API rates&rdquo;. Wharton professor Ethan Mollick, who had pre-release access, reported that the agents building his endless-worlds project set up a review process whose rule book grew to 204 sections and 87,500 words, and output slowed from hundreds of worlds a day to about a dozen. &ldquo;Most critically, the AI did not notice these problems itself,&rdquo; he wrote.</p>
+<h2>Two tiers, one bill</h2>
+<p>Put the two launches together and the shape of the market becomes clear. At the bottom, a race to make the routine step nearly free — Ember at $0.14 a benchmark task, Haiku and Luna at the same per-token price. At the top, a race to make the spectacular step possible at any price — Fable coordinating a thousand agents to formalise a theorem, with a fast mode that doubles the price for up to 2.5 times the speed. The gap between the tiers is now 80 times on input tokens.</p>
+<p>That split is good news and bad news at once. The good news is that the boring tier is where most real work lives, and it is getting cheap fast — cheap enough that agents stop being a demo and start being infrastructure. The bad news is that the top tier&rsquo;s demos are priced like moonshots: a spreadsheet for $11,700, a game for $15,000. For most people, Fable 5.2 is a thing to read about, not a thing to run.</p>
+<p>So the question to ask about any agent product from here on is not &ldquo;which model does it use?&rdquo; but &ldquo;which tier does it live in, and who is paying for the other one?&rdquo; Meta and Anthropic answered on the same day. One is building the engine room. The other is building the penthouse. The price tags say it louder than the press releases.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Meta Research](https://research.meta.ai/blog/muse-ember)</li><li>[PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/meta-and-anthropic-push-ai-models-into-more-complex-work/)</li><li>[Sulat AI & Tech News](https://news.sulat.com/2026/11/10/claude-fable-5-2-mythos-devin-early-access-builds/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
