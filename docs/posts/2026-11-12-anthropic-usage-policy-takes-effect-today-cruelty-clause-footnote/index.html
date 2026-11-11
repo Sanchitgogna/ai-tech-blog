@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anthropic&#x27;s new Claude rules take effect today. The &#x27;don&#x27;t be cruel to the AI&#x27; clause is the footnote. — AI Tech Blog</title>
+<meta name="description" content="Anthropic&#x27;s updated Usage Policy takes effect today, 12 November. The much-discussed ban on being cruel to Claude is narrow and mostly symbolic — the real work is in the human-review rules for high-stakes decisions, the stop controls for Claude-driven equipment, and the ownership test that decides whether your company may use Claude at all.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">12 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-policy/">AI policy</a><a class="tag" href="/ai-tech-blog/tags/anthropic/">Anthropic</a><a class="tag" href="/ai-tech-blog/tags/claude/">Claude</a></p>
+  <h1 class="post-title">Anthropic&#x27;s new Claude rules take effect today. The &#x27;don&#x27;t be cruel to the AI&#x27; clause is the footnote.</h1>
+  <p class="post-subtitle">Anthropic&#x27;s updated Usage Policy goes live today, and the clause that made the headlines asks almost nothing of anyone. The four clauses that matter — human review, stop controls, fake accounts and who owns your company — ask for proof.</p>
+  
+  <div class="post-body">
+<p>Anthropic&rsquo;s updated Usage Policy takes effect today, and if you only read the headlines when it was announced on 8 October, you probably think it&rsquo;s about being nice to the chatbot. The company added a ban on sustained, needless abuse of its models — and the internet spent a week debating whether Claude has feelings.</p>
+<p>It doesn&rsquo;t, as far as anyone can establish. The clause applies only in extreme cases of cruelty with no discernible purpose, and expressly excludes ordinary frustration and model testing. That&rsquo;s the whole story there — the least important part of the update, and the part that made the headlines.</p>
+<p>The rest is a different animal: the most detailed set of operating requirements an AI lab has ever written into its own terms — and it lands today, with no grace period.</p>
+<h2>The human-review rule now reaches inside the building</h2>
+<p>The centrepiece is the high-risk section. When Claude produces a recommendation about a specific person in one of eleven areas, from legal and medical to credit, insurance, housing and employment, the policy now names the covered decisions in plain language: screening or rejecting candidates, pricing a loan, deciding an insurance claim, diagnosing a condition.</p>
+<p>Two things change for anyone running those workflows. First, the reviewer has to be a real one: a qualified person with relevant training and any licence the law requires, who sees the recommendation before it reaches the affected person, and who has the authority to change it. Second, the affected person has to be told clearly that AI was used — a sentence in the adverse-action letter or candidate notice does it.</p>
+<p>Here&rsquo;s the bit that will catch teams out. When Anthropic last revised these rules, in August 2025, they applied specifically when model outputs were consumer-facing. The November text drops that qualifier. An internal recruiting tool never faces a consumer, yet the policy&rsquo;s own employment example describes exactly that.</p>
+<p>One relief valve: where the law permits, a wholly favourable recommendation can skip review — paying an insurance claim, approving coverage for ordered care, granting healthcare eligibility, or granting a public benefit. A partial approval is not &ldquo;wholly favourable&rdquo;.</p>
+<h2>Claude near a machine needs a kill switch that isn&rsquo;t Claude</h2>
+<p>The second clause that matters covers Claude connected to equipment that acts without human approval: moving through shared space, applying force, controlling hazardous energy, acting on the human body, controlling safety systems, and running industrial processes. For those, a qualified operator must be able to observe and stop the equipment at any time, and it must hold a safe state when that person intervenes or the connection drops.</p>
+<p>The detail engineers will recognise is the one about limits: they must be enforced by the equipment or an independent controller, not by model output. A speed limit written into a system prompt does not count — it has to live in the controller or a safety relay that keeps working when the model is wrong or gone.</p>
+<h2>The regions rule, and the rest</h2>
+<p>The surveillance rules are the third clause with teeth. The policy now prohibits using Claude to decide or recommend who to investigate, charge, arrest or detain, and to track a person without consent — through location, biometrics, movements, online activity, communications or associations — in real time or retrospectively. Consented tracking, fraud detection and authorised security research are still permitted. But a workflow that profiles one employee&rsquo;s communications and movements without consent, then recommends a referral to police, is not.</p>
+<p>Fourth, the supported-regions rule. Anthropic now restricts access on three grounds: a person&rsquo;s physical location, an entity&rsquo;s incorporation or headquarters, and its ownership or control. Hong Kong, mainland China and Macau are absent from the supported list; Taiwan, Singapore and Japan are on it. The ownership test is the one to run past legal: a company registered in a supported country can still be caught if it is majority-owned or controlled, directly or indirectly, by persons or entities in an unsupported region. A VPN does not help: the rule follows where the person physically is.</p>
+<p>And one more: a new deceptive-activity section bans amplifying content through fake accounts — for commercial purposes as well as political.</p>
+<h2>The pattern is the point</h2>
+<p>Step back and the shape is clear: model providers are now writing operating requirements that used to come only from regulators — and enforcing them with the one sanction no regulator has, the power to switch off your API key. The policy sets no notice period for doing so.</p>
+<p>None of this is alien to regulated teams — New York City&rsquo;s Local Law 144 has required a bias audit and candidate notice for automated hiring tools since July 2023, and the EU AI Act&rsquo;s Article 26 asks the same of deployers from December 2027. Anthropic&rsquo;s version arrives first, applies everywhere you run Claude, and is enforced by the company that can switch it off.</p>
+<p>That&rsquo;s the real story. The cruelty clause was never the news: the company selling you the model is now also writing your operating manual — and from today, the manual is live. If you run Claude anywhere near a hiring decision, a loan, a claim, a robot or a border, the checklist is short: name the reviewer, prove they can change the output, tell the person AI was involved, test the stop control, and check who owns your company.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[The Daily Brief — Beri](https://www.beri.net/article/anthropic-usage-policy-2026-november-12-high-risk-human-review-disclosure-physical-actions-supported-regions-ownership)</li><li>[Asia Daily](https://asiadaily.org/news/18396/)</li><li>[Servola Systems](https://servolasystems.com/journal/anthropics-new-usage-policy-starts-12-november-and-the-cruelty-clause-is-the-footnote/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
