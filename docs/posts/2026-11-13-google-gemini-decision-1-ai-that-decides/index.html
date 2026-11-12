@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google&#x27;s new AI can&#x27;t write a single sentence. That&#x27;s the point. — AI Tech Blog</title>
+<meta name="description" content="Google announced Gemini Decision 1 on 11 November: a model that skips text generation entirely and scores candidate answers in a single pass — up to 1,000 questions per request, 150–250 ms, $0.10 per million input tokens, zero for output. It is the latest in a sudden wave of decision-only models, and it turns the cheapest unit in AI from a word into a choice.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">13 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-agents/">AI agents</a><a class="tag" href="/ai-tech-blog/tags/google/">Google</a><a class="tag" href="/ai-tech-blog/tags/explainer/">explainer</a></p>
+  <h1 class="post-title">Google&#x27;s new AI can&#x27;t write a single sentence. That&#x27;s the point.</h1>
+  <p class="post-subtitle">Gemini Decision 1 doesn&#x27;t generate text — it scores options, 1,000 at a time, in about a fifth of a second. The labs are now selling decisions by the million, and the price war has found its floor.</p>
+  
+  <div class="post-body">
+<p>Every model you&rsquo;ve ever used writes its answer one word at a time, even when the answer is just &ldquo;yes&rdquo;. Google&rsquo;s newest model doesn&rsquo;t. It can&rsquo;t write a sentence at all. It scores options — up to 1,000 in a single pass — and hands back a probability for each. <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/?ref=explainx">Announced on 11 November</a>, Gemini Decision 1 powers the new Gemini Decisions API, and it&rsquo;s the clearest sign yet that the AI business is splitting in two: the models that write, and the models that decide.</p>
+<p>The trick is what it skips. A normal model generates its answer token by token, which is why even a one-word answer takes time and costs output tokens. Decision 1 never generates: you hand it a fixed list of candidates and it evaluates them all in one forward pass, returning probabilities and a confidence score from 0 to 1. One request can carry a single multimodal input of up to 256,000 tokens — text, images, audio, video, PDFs — plus up to 1,000 questions, in 150–250 milliseconds. The input is billed once per request.</p>
+<p>Three question types, and they&rsquo;re the whole product: yes/no checks, multiple choice across 2 to 255 options, and ordered rubric scores — each returning probabilities for every candidate. Google&rsquo;s example runs all three against one photo of a breakroom counter in a single request.</p>
+<h2>The ten-cent tier is becoming a category</h2>
+<p>The price is $0.10 per million input tokens and $0 for output, with a no-cost tier in Google AI Studio for prototyping. Google says that works out to roughly a fifth of the cost of using Gemini 3.5 Flash-Lite through its Interactions API on the same benchmark suite.</p>
+<p>That number should sound familiar. <a href="https://sanchitgogna.github.io/ai-tech-blog/posts/2026-11-10-meta-ember-vs-anthropic-fable-price-gap/">Two days ago</a> this blog noted that Meta&rsquo;s Muse Ember launched at exactly $0.10 per million input tokens. Same price, different job: Ember generates text; Decision 1 doesn&rsquo;t generate anything. Two labs landing on the same figure within 48 hours isn&rsquo;t a coincidence — it&rsquo;s a price war finding its floor. The cheapest unit in AI is now ten cents per million.</p>
+<p>Google&rsquo;s benchmarks, for the record, are Google&rsquo;s: Decision 1 tops seven of nine, with the lowest calibration error — 0.0250 against GPT-6 Luna&rsquo;s 0.0721. But the two it loses are worth more than the seven it wins. It trails TypeSafe&rsquo;s Jev 1.14 on When2Call, the tool-selection timing test (79.9% to 82.0%), and on Mind2Web (86.2% to 86.8%). Tool calling is the whole point of a decision model for agents. The specialist still beats the generalist at the specialist&rsquo;s own game.</p>
+<h2>The startup did it first</h2>
+<p>Google is, unusually, following. The decision-only model was pioneered by Jev, from the startup TypeSafe, which shipped in September. OpenAI announced its own Decisions API on 29 September and put it in public beta on 6 October. Microsoft launched Microsoft-Decision-1 on 9 October, built on Alibaba&rsquo;s Qwen3.5-9B. Google is the fourth mover in six weeks — and the one lab conspicuously absent is Anthropic, which has announced nothing comparable.</p>
+<p>That sequence matters. It&rsquo;s an industry realising that agents spend most of their time not writing but choosing: which tool to call, which model to route to, whether a result passes a policy check. Each choice used to mean firing up a full generative model and paying for an answer you could have expressed in one word. Now there&rsquo;s a cheaper, faster component for it — and every lab wants to own the one that sits in the middle of every agent&rsquo;s loop.</p>
+<p>Google is already eating its own cooking. Gemini Notebook uses the API as a live router — Google says everyday queries come back up to 40% faster. Google Search uses it as a safety layer, screening MCP tools for adversarial behaviour. Stitch and Google Labs&rsquo; CC use it for wireframes and emoji picks. Integrations with OpenRouter, LangChain, Vercel and LiteLLM are rolling out, with Google Cloud support promised soon.</p>
+<h2>The honest part is the confidence score</h2>
+<p>Here&rsquo;s the part that deserves more attention than the speed: every answer comes with a confidence score. It&rsquo;s the whole reason a decision model can be trusted inside an agent loop — your code can send low-confidence calls to a bigger model or a human, and let the confident ones fly. A system that knows when it doesn&rsquo;t know is worth more than one that&rsquo;s right slightly more often and silent about the rest.</p>
+<p>Which brings us to the caveat. A decision delivered in 200 milliseconds is still a wrong decision if the model picks the wrong tool, and in an agent system a wrong tool call doesn&rsquo;t stay wrong — it cascades. It books the wrong thing, and the next ten decisions inherit the error. Making decisions cheap and fast is genuinely useful. It is also genuinely dangerous if teams treat a probability as a permission slip and stop checking the low-confidence tail.</p>
+<p>The shift is real, though. Three years ago the unit of AI was the word. Then it was the token. Now Google, OpenAI, Microsoft and a startup you&rsquo;ve probably never heard of are all selling the same new unit: a decision, priced by the million, delivered in a fifth of a second, with a number attached that says how sure it is. The writing models aren&rsquo;t going anywhere. But the models that decide what the writing models do will run the most, cost the least, and fail the quietest. Watch the confidence scores.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Google — Gemini Decisions API: Fast multimodal decisions](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/?ref=explainx)</li><li>[MLQ — Google launches Gemini Decision 1](https://mlq.ai/news/google-launches-gemini-decision-1-a-model-that-scores-up-to-1000-questions-in-one-pass/)</li><li>[BigGo Finance — Google Abandons Text Generation for "Decision-Specialized" AI](https://finance.biggo.com/news/e334413b-8aa0-4e11-b048-6e66d9338af0)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
