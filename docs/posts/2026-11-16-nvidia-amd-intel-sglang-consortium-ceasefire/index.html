@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA, AMD and Intel just joined the same club. The chip war has a ceasefire — in software. — AI Tech Blog</title>
+<meta name="description" content="LMSYS Org launched the SGLang Consortium on 12 November, with NVIDIA, AMD, Intel, Google, Meta, Cloudflare, Modal and RadixArk as founding members. The rivals will jointly steer the open-source engine that serves AI models — because inference, not training, is now where the money goes.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">16 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/open-source/">open source</a><a class="tag" href="/ai-tech-blog/tags/ai-chips/">AI chips</a><a class="tag" href="/ai-tech-blog/tags/ai-infrastructure/">AI infrastructure</a></p>
+  <h1 class="post-title">NVIDIA, AMD and Intel just joined the same club. The chip war has a ceasefire — in software.</h1>
+  <p class="post-subtitle">The fiercest rivals in AI hardware are now co-owners of the same open-source serving stack. The fight moved from who makes the chip to who runs it cheapest.</p>
+  
+  <div class="post-body">
+<p>NVIDIA, AMD and Intel spent the last three years trying to bury each other. Last Thursday, they joined the same club.</p>
+<p>LMSYS Org <a href="https://www.lmsys.org/blog/2026-11-12-sglang-consortium">launched the SGLang Consortium</a> on 12 November, in the opening keynote of the first SGLang Summit in San Francisco. The founding members are NVIDIA, AMD, Intel, Google, Meta, Cloudflare, Modal and RadixArk — eight companies that, between them, cover almost every chip, cloud and deployment platform AI runs on. Their job: jointly steer the roadmap of SGLang, the open-source engine that serves AI models to users.</p>
+<p>This is not a charity project. It&rsquo;s a ceasefire with a business case.</p>
+<h2>Inference is where the money went</h2>
+<p>Training gets the headlines. Inference pays the bills. Deloitte estimates inference will account for roughly two-thirds of all AI compute in 2026, up from about half in 2025. Every chatbot reply, every agent action, every AI-generated image is an inference job — and the software that runs those jobs decides how fast they come back and what they cost.</p>
+<p>SGLang is that software, or at least one of the main contenders for the job. It&rsquo;s a full-stack inference engine, part of the PyTorch ecosystem, and LMSYS says it runs on hundreds of thousands of GPUs, powering production deployments at Meta, Microsoft, Google, Amazon, Thinking Machines Lab, Cloudflare, Reflection and Modal. Its signature trick is RadixAttention, a caching technique that reuses work from earlier requests instead of recomputing it — the kind of unglamorous optimisation that shows up directly in a cloud bill.</p>
+<p>That&rsquo;s why the member list matters more than the press release. When the companies that buy the most inference capacity all agree to build on the same serving stack, the stack becomes infrastructure. And infrastructure, once shared, is very hard to take private again.</p>
+<h2>What the consortium actually does</h2>
+<p>The governance is deliberately boring, which is the point. Each founding member names a technical representative and joins two roadmap meetings a year, contributing engineering, deployment feedback, testing resources or joint development. Working groups can collaborate between meetings, with public updates on direction and progress. LMSYS&rsquo;s maintainers keep final say over technical decisions and code acceptance — membership buys a seat at the table, not a veto.</p>
+<p>The five focus areas are frontier model support, reasoning and multimodal workloads, distributed inference, and hardware optimisation. Translation: making sure the newest models run well everywhere, not just on one vendor&rsquo;s silicon.</p>
+<p>There were concrete signs on day one. Intel and RadixArk announced they&rsquo;ll optimise SGLang for Intel CPUs, GPUs and accelerators, including support for Intel&rsquo;s Advanced Matrix Extensions, and upstream the work rather than keeping a vendor-only fork. And SGLang-Neuron v0.1.0, co-developed by RadixArk and AWS Annapurna Labs, entered public preview the same day, bringing the serving stack to AWS Trainium hardware through a native PyTorch plugin. The SGLang team also marked a version 1.0 milestone, citing more than 330 adopting organisations and day-zero support for 217 models.</p>
+<h2>Why rivals would share the plumbing</h2>
+<p>Every chipmaker has the same problem: their hardware is only as good as the software that runs on it. NVIDIA learned this a decade ago with CUDA. AMD&rsquo;s MI450X, announced the same week Jensen Huang resigned, is a serious chip — but a serious chip with thin software support is a paperweight. Intel has been living that lesson for years.</p>
+<p>So the logic inverts. Instead of each vendor maintaining its own serving stack and hoping developers bother, they all pour engineering into one open stack that runs well on everything. NVIDIA&rsquo;s Ian Buck put it plainly in the announcement: better software helps developers get more performance from NVIDIA compute, and lower inference costs make AI more accessible. AMD&rsquo;s Ramine Roane made the same argument from the other side: SGLang runs across hardware, including AMD Instinct GPUs.</p>
+<p>It&rsquo;s the same playbook as the Linux Foundation, or the early days of Kubernetes: compete on the product, cooperate on the layer underneath. The difference is the stakes. The serving layer decides which hardware is cheap to run, and cheap-to-run hardware gets bought.</p>
+<h2>The caveats, because there are always caveats</h2>
+<p>A consortium is a governance announcement, not a shipped feature. No new capability arrived with it. The funding each member contributes, and the engineering headcount behind the promises, hasn&rsquo;t been spelled out publicly. Intel&rsquo;s performance language is aspiration, not a benchmark — the release names no test configuration, no tokens-per-second figure, no date for a finished optimised build. And the SGLang-Neuron plugin is in public preview, not general availability.</p>
+<p>There&rsquo;s also the question this blog has raised before. When Amazon launched TorchNeuron in October, the pitch was the same — one migration line, run anywhere — and the catch was that the real speed came from chip-specific kernels. Open serving stacks reduce lock-in; they don&rsquo;t abolish it. A model that runs everywhere still runs <em>best</em> somewhere, and that somewhere is usually whoever wrote the most optimised code for their own silicon.</p>
+<p>Still, the direction of travel is unmistakable. The last month has seen open-weight models, open serving stacks and shared governance pile up faster than any single vendor&rsquo;s walled garden. The chip war isn&rsquo;t over. It just moved one layer up the stack — from who fabricates the silicon to who writes the software that makes it worth buying.</p>
+<p>And on that layer, for once, everyone is on the same side.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[LMSYS Org](https://www.lmsys.org/blog/2026-11-12-sglang-consortium)</li><li>[Bitcoin Versus](https://bitcoinversus.tech/2026/11/15/sglang-consortium-nvidia-amd-intel-google-open-ai-inference-november-2026/)</li><li>[Business Wire](https://www.businesswire.com/news/home/20261112052367/en/LMSYS-Org-Launches-SGLang-Consortium-with-NVIDIA-AMD-Intel-Google-Meta-Cloudflare-Modal-and-RadixArk-to-Advance-Open-Source-AI-Inference)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
