@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This AI re-reads its own homework three times — and it runs on your laptop — AI Tech Blog</title>
+<meta name="description" content="Inkling 2 Mini is a 26.4-billion-parameter open-weights model that runs its middle layers three times per token instead of stacking more parameters — and on agentic coding benchmarks it ties a model with nearly eight times the active parameters, on hardware you already own.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">22 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-tools/">AI tools</a><a class="tag" href="/ai-tech-blog/tags/open-source/">open source</a><a class="tag" href="/ai-tech-blog/tags/local-ai/">local AI</a></p>
+  <h1 class="post-title">This AI re-reads its own homework three times — and it runs on your laptop</h1>
+  <p class="post-subtitle">Thinking Machines&#x27; Inkling 2 Mini loops its middle layers instead of growing bigger, and ties Alibaba&#x27;s flagship on the benchmarks that matter for coding.</p>
+  
+  <div class="post-body">
+<p>For two years the recipe for a better AI model has been depressingly simple: more parameters, more GPUs, more money. Thinking Machines Lab, the startup founded by former OpenAI CTO Mira Murati, just released a model that tries a different trick. Instead of growing, it re-reads.</p>
+<p><a href="https://venturebeat.com/technology/thinking-machines-wows-with-inkling-2-mini-looped-transformer-model-that-runs-locally-on-laptops">Inkling 2 Mini, released on 20 November</a>, is a 26.4-billion-parameter open-weights model that fits in about 20GB and runs on a 32GB MacBook Pro or a single desktop GPU. And on the benchmarks that measure whether an AI can actually do coding work — not just answer trivia — it keeps up with models far larger than itself.</p>
+<h2>The loop, explained in one paragraph</h2>
+<p>A normal transformer reads each token once, top to bottom, through all of its layers. Inkling 2 Mini has 24 layers, but it doesn&rsquo;t run them once. The first six and last six run once; the middle 12 run three times, reusing the same weights. That adds up to 48 effective layer passes per token — the reasoning depth of a much bigger model, without storing a single extra parameter.</p>
+<p>The analogy the lab leans on is a human one: pausing to mentally re-check a tricky equation three times before writing down the answer, instead of filling three pages with scratch work. The practical payoff is that the model does its thinking <em>inside</em> the network, where it doesn&rsquo;t have to write out long chains of thought as text — which is slower, more expensive, and burns output tokens.</p>
+<p>The numbers back it up. It scores 20.1 on the <a href="https://artificialanalysis.ai/articles/inkling-2-mini">Artificial Analysis Intelligence Index</a>, tying Alibaba&rsquo;s dense 27-billion-parameter Qwen3.8 — a model with roughly eight times the active parameters per token. On agentic coding tests it leads every open-weights model under 100 billion parameters: 48.2% on DeepSWE v1.1 and 79.2% on SWE-bench Verified. And because it does more work per token instead of more tokens per task, it costs about $0.59 per benchmark task against Qwen&rsquo;s $3.53, and finishes in 9 minutes instead of 38.</p>
+<h2>What it actually runs on</h2>
+<p>This is the part that matters for anyone who doesn&rsquo;t own a data centre. The weights ship under the Apache 2.0 licence on Hugging Face, and day one brought support from the local-AI tooling everyone already uses — Ollama, llama.cpp, SGLang, vLLM. Thinking Machines demonstrated it running in airplane mode on a 48GB M5 Pro MacBook Pro, building a playable flight simulator, and powering 20 persistent autonomous villagers in a local town simulation.</p>
+<p>That&rsquo;s the local-AI story this blog has been tracking all year — NVIDIA&rsquo;s Nemotron running on a 24GB card in October, Meta&rsquo;s 816-billion-parameter Muse Spark Open squeezing onto Mac Studios — taken one step further. The difference is that Inkling 2 Mini isn&rsquo;t a stripped-down toy version of a frontier model. On coding and tool use, it&rsquo;s genuinely competitive with the best open models in its size class, with a million-token context window and image input on top.</p>
+<h2>The honest caveats</h2>
+<p>Looping can&rsquo;t conjure knowledge out of thin air, and Thinking Machines says so itself. Factual recall scales with total parameter count, and Inkling 2 Mini trails Qwen3.8 on Artificial Analysis&rsquo;s omniscience test (−8.6 against −6.4), with a lower non-hallucination rate (63.4% versus 71.4%). It also lags on multi-turn conversation and multi-constraint instructions, and can fall into repetitive debugging loops or clip its phrasing in non-English languages. If you want a model that knows things, the bigger dense models still win. If you want one that <em>does</em> things — writes code, calls tools, works through a problem — the loop is doing real work.</p>
+<p>There&rsquo;s a safety question hiding in the loop, too, and to the lab&rsquo;s credit it didn&rsquo;t bury it. When a model does more reasoning internally without writing it down, it&rsquo;s harder to oversee. Thinking Machines shipped a companion research checkpoint with adjustable loop counts and partnered with the National Deep Inference Fabric and Goodfire to study what&rsquo;s happening inside. Its early tests found the model&rsquo;s unspoken reasoning horizon stretching from 16 seconds at one pass to 37 seconds at three — but the traces that <em>did</em> come out stayed human-legible, and there was no upward trend in covert sabotage on its control benchmark. That&rsquo;s reassuring, not conclusive. The right read is that a model that thinks more in its head deserves more scrutiny, not less — and the lab seems to know it.</p>
+<h2>Why this one is different</h2>
+<p>Inkling 2 Mini is the third act in an unusually fast year for Thinking Machines. The lab raised a $2 billion seed round at a $12 billion valuation in July 2025, shipped its Tinker fine-tuning platform in October, released the 975-billion-parameter Inkling in July 2026, and opened the second generation with the 594-billion-parameter Inkling 2 Small on 5 November. Fifteen days later, the same family produced a model a twentieth of the size that runs on a laptop.</p>
+<p>That&rsquo;s the bet: the next frontier isn&rsquo;t only bigger models, it&rsquo;s models that spend their compute better. Looping is one answer — spend the same weights three times instead of buying new ones. If it holds up outside the lab&rsquo;s benchmarks, the practical consequence is a coding assistant that runs offline, on your own machine, with your code never leaving it. For a lot of developers and a lot of companies, that&rsquo;s not a benchmark story. It&rsquo;s the whole point.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[VentureBeat — Thinking Machines wows with Inkling 2 Mini looped transformer model that runs locally on laptops](https://venturebeat.com/technology/thinking-machines-wows-with-inkling-2-mini-looped-transformer-model-that-runs-locally-on-laptops)</li><li>[Artificial Analysis — Thinking Machines has released Inkling 2 Mini, an open weights looped transformer](https://artificialanalysis.ai/articles/inkling-2-mini)</li><li>[The Decoder — New open model Inkling 2 Mini thinks in loops to solve problems with fewer words and still runs on a laptop](https://the-decoder.com/new-open-model-inkling-2-mini-thinks-in-loops-to-solve-problems-with-fewer-words-and-still-runs-on-a-laptop/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
