@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude just proved the Riemann Hypothesis. No human can read the proof. — AI Tech Blog</title>
+<meta name="description" content="Levent Alpöge says he and Claude proved the Riemann Hypothesis, maths&#x27; most famous open problem. The Lean and Mathlib communities have certified the 17-million-line proof as correct — but nobody, including Alpöge, has read it yet.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">23 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-research/">AI research</a><a class="tag" href="/ai-tech-blog/tags/anthropic/">Anthropic</a><a class="tag" href="/ai-tech-blog/tags/claude/">Claude</a></p>
+  <h1 class="post-title">Claude just proved the Riemann Hypothesis. No human can read the proof.</h1>
+  <p class="post-subtitle">An Anthropic mathematician and Claude cracked maths&#x27; most famous problem in six weeks. The machines have certified it correct — and the humans are still catching up.</p>
+  
+  <div class="post-body">
+<p>On Friday, an Anthropic mathematician said he and Claude had done what mathematics couldn&rsquo;t do in 167 years. Then he admitted something stranger: he can&rsquo;t fully explain how.</p>
+<p>&ldquo;I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis,&rdquo; <a href="https://phys.org/news/2026-11-anthropic-claude-math-greatest-riddle.html">Levent Alpöge wrote in a four-page note</a> posted to his personal website on 20 November. The hypothesis, proposed by Bernhard Riemann in 1859, predicts a precise hidden pattern in how prime numbers are distributed. It is one of the Clay Mathematics Institute&rsquo;s seven Millennium Prize Problems, each carrying a $1 million prize. Alpöge says his method also resolves the broader Generalized Riemann Hypothesis.</p>
+<p>Brian Conrey, a leading specialist on the problem, called it &ldquo;the biggest thing I think that&rsquo;s ever happened in mathematics&rdquo; — before adding he hadn&rsquo;t seen a manuscript, only the remarks posted online.</p>
+<h2>The proof is 17 million lines long</h2>
+<p>Alpöge and Claude worked on the problem for about six weeks, from 6 October to 16 November. He set the direction; Claude did the technical work. The result exists only as computer code: roughly 17 million lines of Lean, a language that checks mathematical arguments step by step, split across 14 archives. Printed out, Alpöge says the argument would run to more than 250,000 pages, and he calls it unreadable.</p>
+<p>The core idea is, at least in outline, human-sized. The pair extended an approach pioneered by the mathematician Stepanov, chaining special transformations together to mimic the effect of a derivative on whole numbers — a trick that normally fails, because individual values can&rsquo;t be differentiated like a continuous line. The key insight, supplied by the model, was that for a number sequence of length X, you need to chain exactly as many transformations as the square root of X.</p>
+<p>Then the scale exploded: Claude spelled out even the most basic steps, until no person could ever sit down and read it.</p>
+<h2>The machines checked it in a day</h2>
+<p>So the checking was outsourced to machines, too. On 21 November, the communities behind Lean and its main maths library, Mathlib, published a joint statement saying they have &ldquo;full confidence&rdquo; that Alpöge&rsquo;s proof is correct and certifying both the statement and the proof. Dozens of people independently compiled the codebase without errors.</p>
+<p>MIT&rsquo;s Andrew Sutherland logged the checks: all 175,187 modules compile with zero errors, the five headline theorems rest only on the three standard axioms of mathematics, and independent proof checkers written in different languages — nanoda, con-leche, lean4lean — all accept the exported proof.</p>
+<p>What remains is understanding it. Alpöge openly says he hasn&rsquo;t mastered parts of the mathematics himself, particularly where Claude raced ahead of him, and he plans to write a human-readable account over the coming months.</p>
+<h2>Stanford rushed out a rival proof hours later</h2>
+<p>Within hours, the story got stranger. Stanford mathematician Ravi Vakil posted a draft proof of the Generalized Riemann Hypothesis by Alessandro Masullo — pointedly &ldquo;all human, with no AI.&rdquo; Brian Conrad had reviewed it for months, and the plan was a year of refining. Anthropic&rsquo;s announcement forced their hand.</p>
+<p>About eight hours later, Vakil updated his post: several people had reported problems in the draft, identified with the assistance of different AI models. The symmetry is hard to miss — the AI-assisted proof was certified by machines in a day, while the all-human proof was debugged, in part, by AI within hours.</p>
+<h2>The timing, and the year that led here</h2>
+<p>The announcement landed the day after Anthropic&rsquo;s record-breaking stock market debut — a point Alpöge raised himself. He says he texted CEO Dario Amodei about the result late on a Sunday, waited until after the IPO on 19 November, and calls the timing &ldquo;extremely unfortunate&rdquo; while rejecting any suggestion of a PR stunt.</p>
+<p>The result caps a year in which AI kept creeping up on this problem. In August, Anthropic said a research version of Claude had raised the proven share of the zeta function&rsquo;s zeros from 41.6% to 67.2% — while explicitly warning the techniques wouldn&rsquo;t lead to a proof. Three months later, they did.</p>
+<p>Forecasters had expected the proof by May 2035; Terence Tao said last month he expected it around 2050. Both were wrong by a decade or more.</p>
+<h2>What counts as a proof now?</h2>
+<p>The $1 million prize, for now, stays unclaimed. The Clay Institute still lists the problem as unsolved: a solution needs a peer-reviewed publication, two years of scrutiny, and general acceptance among mathematicians. Alpöge has published only on his own website.</p>
+<p>Hundreds of published papers assume the Riemann Hypothesis is true; if the certification holds, they all become established theorems overnight. For centuries, a proof was a human argument that other humans could follow. This one is a machine argument that other machines have verified — and the humans, including its own author, are now doing the homework of understanding what was proved.</p>
+<p>At a Harvard workshop in October 2024, MIT number theorist Andrew Sutherland summed up the stakes: &ldquo;An AI that can prove the Riemann hypothesis is not one I&rsquo;d want to meet. If that happens, mathematicians having jobs will be the least of our problems.&rdquo; Two years later, they solved it. The jobs question is still open. The understanding question is now the job.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Phys.org (AFP) — Anthropic researcher says he and Claude proved the Riemann hypothesis, first posed in 1859](https://phys.org/news/2026-11-anthropic-claude-math-greatest-riddle.html)</li><li>[The Decoder — Hours after Anthropic claims a Claude proof of the Riemann hypothesis, Stanford releases an all-human competing draft](https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/)</li><li>[Andrew Sutherland (MIT) — Verification files for the Lean proof of the Riemann Hypothesis](https://math.mit.edu/~drew/grh/)</li><li>[Tbreak — Claude-assisted Riemann hypothesis proof passes Lean checks](https://tbreak.com/riemann-hypothesis-proof-claude-anthropic/)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
