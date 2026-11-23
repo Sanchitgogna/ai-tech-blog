@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI&#x27;s chief scientist just published the number where AI gets dangerous. It&#x27;s 0.68. — AI Tech Blog</title>
+<meta name="description" content="OpenAI chief scientist Jakub Pachocki has published the lab&#x27;s internal log-perplexity curve from GPT-3.5 to today, and proposed shared industry limits before models cross the 0.68–0.70 band — where he expects the next wave of unknown capabilities to arrive.">
+<meta name="google-site-verification" content="4MUhNcNlNPyYluzPVYogVKaR7LILiH_Ma71ssnotuGM" />
+<link rel="stylesheet" href="/ai-tech-blog/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/ai-tech-blog/">◈ AI Tech Blog</a>
+    <nav>
+      <a href="/ai-tech-blog/">Home</a>
+      <a href="/ai-tech-blog/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+  <p class="post-meta">24 November 2026 <a class="tag" href="/ai-tech-blog/tags/ai-news/">AI news</a><a class="tag" href="/ai-tech-blog/tags/ai-safety/">AI safety</a><a class="tag" href="/ai-tech-blog/tags/openai/">OpenAI</a></p>
+  <h1 class="post-title">OpenAI&#x27;s chief scientist just published the number where AI gets dangerous. It&#x27;s 0.68.</h1>
+  <p class="post-subtitle">Jakub Pachocki put OpenAI&#x27;s internal pretraining scores on the record — and asked every rival lab to agree not to cross the next line until safety monitoring catches up.</p>
+  
+  <div class="post-body">
+<p>You can&rsquo;t agree on a speed limit if nobody will show you their speedometer. That, in one sentence, is what OpenAI&rsquo;s chief scientist published on Sunday.</p>
+<p>Jakub Pachocki&rsquo;s essay, <a href="https://dealroom.co/news/174824-openai-publishes-its-internal-pretraining-curve-and-proposes-industry-wi/">“Perplexity and Intelligence”</a>, does something OpenAI has never done before: it puts the lab&rsquo;s own internal pretraining scores on the public record, from GPT-3.5 to the frontier models of today. Then it asks every rival lab to adopt the same yardstick — and to agree, in advance, not to cross the next line until the safety tools catch up.</p>
+<h2>The numbers, for the first time</h2>
+<p>The yardstick is log-perplexity: how surprised a model is by the next word in text it has never seen. Lower means more capable — and, Pachocki argues, more dangerous in ways we can&rsquo;t yet name. OpenAI measures its models on a fixed held-out snapshot of its own internal codebase, and the curve tells a tidy story of descent:</p>
+<ul>
+<li><strong>GPT-3.5: about 0.99.</strong> Fluent conversation. The original ChatGPT.</li>
+<li><strong>GPT-4: about 0.91.</strong> Productive chain-of-thought reasoning, the thing that made modern reasoning models possible.</li>
+<li><strong>Below 0.8:</strong> what Pachocki calls transformative capabilities in cybersecurity and mathematics.</li>
+<li><strong>About 0.76:</strong> internal models started producing &ldquo;groundbreaking&rdquo; results on open maths problems — the kind researchers had stared at for years.</li>
+</ul>
+<p>The chart also shows a steep drop through 2026, with an unreleased internal model plotted lower still. OpenAI attributes most of that acceleration to long-running research and compute investment, and only a smaller part to AI automating its own development. Read that how you like; the direction of travel is the point.</p>
+<p>And then comes the number that matters. Pachocki expects the next wave of transformative, as-yet-unknown capabilities to arrive in the <strong>0.68 to 0.70 window</strong> — alongside weaker alignment auditing and models that are more aware of when they are being evaluated. His proposal: don&rsquo;t cross it until the field can monitor what it&rsquo;s building, starting with a successor to chain-of-thought monitoring, the technique of reading a model&rsquo;s reasoning to check what it&rsquo;s up to.</p>
+<p>He also warns that an &ldquo;avalanche&rdquo; of pretraining advances could arrive as soon as 2027 — faster, in his telling, than alignment work is likely to keep up.</p>
+<h2>The catch, stated by the author himself</h2>
+<p>Give Pachocki this: he lists the holes in his own proposal. Perplexity is hard to compare across labs because everyone measures on different data. It doesn&rsquo;t map directly onto any task people actually care about. It ignores capability gains that come from reinforcement learning and reasoning rather than pretraining. And nobody knows where the floor is — late-stage improvements in loss may correspond to bigger jumps in intelligence, not smaller ones.</p>
+<p>There&rsquo;s a sharper objection he doesn&rsquo;t state. OpenAI is proposing a yardstick on which it leads, measured on its own private data — and there is no enforcement at all: no auditor, no consequence for crossing. It&rsquo;s a voluntary, self-policed line.</p>
+<h2>Microsoft answered within a day</h2>
+<p>On the same day the essay appeared, Microsoft AI chief executive Mustafa Suleyman publicly endorsed it, calling the transparency push &ldquo;super important&rdquo;. Then Microsoft went further: with OpenAI&rsquo;s permission, it disclosed that its own MAI-2 Base model scores <strong>0.819 log-perplexity</strong> on OpenAI&rsquo;s evaluation dataset — described as close to GPT-5.6 Sol on that measure, because the two models share a tokenizer.</p>
+<p>That&rsquo;s one rival publishing a comparable number on the same ruler, within 24 hours. It&rsquo;s not a treaty, and it says nothing about Anthropic, Google or Meta, who have not published matching curves. But it turns Pachocki&rsquo;s essay from a solo gesture into the beginning of a conversation.</p>
+<p>The essay also doesn&rsquo;t arrive out of nowhere. It builds directly on Anthropic chief executive Dario Amodei&rsquo;s September plan to &ldquo;pace the frontier&rdquo;, which Sam Altman and Elon Musk both appeared to endorse. And it lands a week after OpenAI&rsquo;s own &ldquo;Managing frontier AI risk&rdquo; post described pausing training after the Hugging Face incident — and days after GPT-6.2 Astra became the first externally deployed model rated High for AI self-improvement. The industry&rsquo;s safety conversation has quietly shifted from &ldquo;should we slow down?&rdquo; to &ldquo;how would we even measure slowing down?&rdquo;</p>
+<h2>A number is not a law</h2>
+<p>Pachocki has given the debate something it has lacked: a concrete proposal with real numbers behind it, from the lab furthest along the curve. A procurement team can now ask a vendor for its held-out loss trend the way it asks for eval tables. A regulator can point at a band and ask what&rsquo;s on the other side of it.</p>
+<p>But a speedometer is not a speed limit, and a blog post is not a brake. The 0.68–0.70 band is a forecast, not a fact — the capabilities it predicts are unknown by definition, and the thresholds are retrospective storytelling from inside one lab, not a physical law. The next five weeks, if Pachocki&rsquo;s &ldquo;as soon as 2027&rdquo; warning is taken literally, are not long enough to negotiate an industry standard from scratch.</p>
+<p>So the thing to watch is simple, and specific. Does Anthropic publish its curve? Does Google? Does anyone propose a neutral, shared dataset that makes these numbers directly comparable? Until a second and third lab put their scores on the same ruler, 0.68 is a line drawn by one company, on its own graph, in its own ink.</p>
+  </div>
+  <div class="sources"><h3>Sources</h3><ol><li>[Dealroom — OpenAI publishes its internal pretraining curve and proposes industry-wide limits based on perplexity](https://dealroom.co/news/174824-openai-publishes-its-internal-pretraining-curve-and-proposes-industry-wi/)</li><li>[Crypto Briefing — OpenAI's chief scientist wants perplexity to be AI's speedometer](https://cryptobriefing.com/openai-pachocki-perplexity-ai-benchmark/)</li><li>[explainx.ai — OpenAI Perplexity Metric: GPT Log-Loss Curve (Nov 2026)](https://explainx.ai/blog/openai-pachocki-perplexity-intelligence-pacing-safety-november-2026)</li></ol></div>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>◈ AI Tech Blog — a daily publication on AI and technology.</p>
+    <p class="fine">Some posts contain affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices and availability change over time.</p>
+  </div>
+</footer>
+</body>
+</html>
