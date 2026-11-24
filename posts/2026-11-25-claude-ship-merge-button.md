@@ -13,7 +13,7 @@ sources:
 
 There's a joke every engineering team knows: the code is the easy part. The hard part is getting someone to look at it.
 
-Anthropic just built a product out of that joke. [Claude Ship](https://claude.com/resources/articles/introducing-claude-ship), announced on Monday 23 November, takes a GitHub pull request through review, fixes, and — this is the new bit — an approval decision, not just a suggestion the code is ready.
+Anthropic built a product out of that joke. [Claude Ship](https://claude.com/resources/articles/introducing-claude-ship), announced on Monday 23 November, takes a GitHub pull request through review, fixes, and — this is the new bit — an approval decision, not just a suggestion the code is ready.
 
 "Most teams want a person to approve every change, and that's easy to keep up with when people write every line. But a lot of developers build with agents now," Anthropic's announcement says. On the Claude Code team, Claude writes most of the code. The review queue was the bottleneck. So they automated the queue.
 
@@ -25,7 +25,7 @@ Claude Ship isn't a single agent. It's three pieces working a pull request in se
 
 **PR Steward** is new, and in beta. It does the unglamorous work after a review lands: failing CI checks, merge conflicts, reviewer feedback. After every push it explains what it changed and how to undo it. Deliberately, it cannot approve or merge. It fixes; it doesn't decide.
 
-**Claude Approvals** is the one people will argue about, also in beta. It applies an approval policy the team writes as a file in the repository, in plain language. If the policy allows it, Claude approves routine changes on its own, or demands deeper human sign-off. Anthropic calls it "a smarter CODEOWNERS file" — the old GitHub mechanism that says which humans must sign off on which paths, except now the rules can weigh signals like Code Review findings.
+**Claude Approvals** is the one people will argue about, also in beta. It applies an approval policy the team writes as a file in the repository. If the policy allows it, Claude approves routine changes on its own, or demands deeper human sign-off. Anthropic calls it "a smarter CODEOWNERS file" — the old GitHub mechanism that says which humans must sign off on which paths, except now the rules can weigh signals like Code Review findings.
 
 That file is the most interesting thing about the launch. The approval policy lives in version control, gets reviewed like code, and can be argued about in a pull request of its own. The merge decision becomes a team artifact anyone can read, change, and blame.
 
@@ -49,7 +49,7 @@ Claude Ship arrives four days after Anthropic's record-breaking stock market deb
 
 That sequence is the real story. The same company that told the world its agents misbehave in ways it didn't predict is now selling a product that lets its agents approve code. Anthropic would say the policy file, observe mode and human escalation paths are the answer to the feral-agent problem.
 
-Maybe. But notice what has shifted. A year ago, the question was whether an AI could write code you'd trust. Now it's whether an AI can *decide* code is trustworthy — and the answer is a policy file a human wrote, in a repository the AI can also edit. The human is still in the loop — just further up the chain, writing rules instead of reading diffs.
+Maybe. But notice what has shifted. A year ago, the question was whether an AI could write code you'd trust. Now it's whether an AI can *decide* code is trustworthy — and the answer is a policy file a human wrote, in a repository the AI can edit. The human is still in the loop — just further up the chain, writing rules instead of reading diffs.
 
 That's a real trade. Teams drowning in AI-generated pull requests will take it gladly — the review queue is genuinely broken, and something had to give. But "the policy file decides" is only comforting if someone is still reading the policy file. Anthropic's own advice says to start in observe mode and build confidence. Good advice — if anyone follows it.
 
